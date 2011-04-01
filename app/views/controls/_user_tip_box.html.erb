@@ -1,0 +1,46 @@
+<% if invitations + reminds + messages + attentions > 0 -%>
+<div class="user-tip-box" id="">
+    <ul>
+        <% if invitations > 0 -%>
+        <li>
+            <div class="item icon"><%= image_tag 'bg.png', :title => '', :class => 'ctrl-icon ctrl-icon-invitation-35x35' %></div>
+            <div class="item content">您有(<span class="highlight"><%= invitations.to_s %></span>)个邀请</div>
+            <div class="item ctrls">
+                <span><%= link_to '查看', 'javascript:void(0)', :class => 'ctrl-button ctrl-ok-42x16' %></span>
+                <span><%= link_to_function '忽略', "$(this).parents('li').hide();if($(this).parents('ul').children('li:visible').length == 0)$(this).parents('.user-tip-box').hide();", :class => 'ctrl-button ctrl-cancel-42x16' %></span>
+            </div>
+        </li>
+        <% end -%>
+        <% if reminds > 0 -%>
+        <li>
+            <div class="item icon"><%= image_tag 'bg.png', :title => '', :class => 'ctrl-icon ctrl-icon-remind-35x35' %></div>
+            <div class="item content">买书－加拿大七人画派</div>
+            <div class="item ctrls">
+                <span><%= link_to '查看', 'javascript:void(0)', :class => 'ctrl-button ctrl-ok-42x16' %></span>
+                <span><%= link_to_function '忽略', "$(this).parents('li').hide();if($(this).parents('ul').children('li:visible').length == 0)$(this).parents('.user-tip-box').hide();", :class => 'ctrl-button ctrl-cancel-42x16' %></span>
+            </div>
+        </li>
+        <% end -%>
+        <% if messages > 0 -%>
+        <li>
+            <div class="item icon"><%= image_tag 'bg.png', :title => '', :class => 'ctrl-icon ctrl-icon-message-35x35' %></div>
+            <div class="item content">您有(<span class="highlight"><%= messages.to_s %></span>)个未读消息</div>
+            <div class="item ctrls">
+                <span><%= link_to '查看', recv_messages_path, :class => 'ctrl-button ctrl-ok-42x16' %></span>
+                <span><%= link_to_function '忽略', "$(this).parents('li').hide();if($(this).parents('ul').children('li:visible').length == 0)$(this).parents('.user-tip-box').hide();", :class => 'ctrl-button ctrl-cancel-42x16' %></span>
+            </div>
+        </li>
+        <% end -%>
+        <% if attentions > 0 -%>
+        <li class="last">
+            <div class="item icon"><%= image_tag 'bg.png', :title => '', :class => 'ctrl-icon ctrl-icon-attention-35x35' %></div>
+            <div class="item content">有(<span class="highlight"><%= attentions.to_s %></span>)个人关注了您</div>
+            <div class="item ctrls">
+                <span><%= link_to '查看', 'javascript:void(0)', :class => 'ctrl-button ctrl-ok-42x16' %></span>
+                <span><%= link_to_function '忽略', "$(this).parents('li').hide();if($(this).parents('ul').children('li:visible').length == 0)$(this).parents('.user-tip-box').hide();", :class => 'ctrl-button ctrl-cancel-42x16' %></span>
+            </div>
+        </li>
+        <% end -%>
+    </ul>
+</div>
+<% end -%>

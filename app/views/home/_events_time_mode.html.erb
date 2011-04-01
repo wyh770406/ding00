@@ -1,0 +1,233 @@
+<!--<h1>Time mode events list here</h1>-->
+<script type="text/javascript">
+  $(function () {
+    var  nowtime="<%=Time.now.to_s(:long)%>"+":00";
+    var currtime="<%=@nowtime%>";
+    if (currtime=="")
+      currtime="<%=Time.now.to_s(:long)%>"+":00";
+    init_cal(nowtime,currtime);
+  });
+
+  function init_cal(nowtime,currtime)
+  {
+    getToday(nowtime,currtime);
+
+    calender_init("#tt");
+
+
+    ey = <%=@eventy%> ;
+    em = <%=@eventm%> ;
+    ed = <%=@eventd%> ;
+    userid =<%=@userid%>;
+
+    getReqEvents(ey,em,ed,userid);
+
+    function getReqEvents(curry,currm,currd,userid)
+    {
+      $.ajax(
+      {
+        data:'userid='+userid+'&eventy='+curry+'&eventm='+currm+'&eventd='+currd+'&authenticity_token=' + encodeURIComponent(authenticity_token),
+        dataType:'json',
+        success:function(request){
+
+          if (request!=null)
+            getEvents(request.events);
+        },
+        type:'post',
+        async:true,
+        url:'/events/get_eventjson'
+      });
+    }
+
+
+    //上一星期
+    $("#prev").click(function(e) {
+
+      prevWeek();
+      prevy = gFirstDate.getFullYear();
+      prevm = gFirstDate.getMonth()+1;
+      prevd = gFirstDate.getDate();
+      getReqEvents(prevy,prevm,prevd,userid);
+    });
+
+    //下一星期
+
+    $("#next").click(function(e) {
+
+      nextWeek();
+      nexty = gFirstDate.getFullYear();
+      nextm = gFirstDate.getMonth()+1;
+      nextd = gFirstDate.getDate();
+      getReqEvents(nexty,nextm,nextd,userid);
+    });
+
+    //今天
+    $("#today").click(function(e) {
+      showToday();
+      curry = gFirstDate.getFullYear();
+      currm = gFirstDate.getMonth()+1;
+      currd = gFirstDate.getDate();
+      getReqEvents(curry, currm, currd,userid);
+    });
+
+
+    $("#cancelCreateEventBt").click(function(e) {
+
+      clearAllEventWnd();
+
+    });
+
+    $("#createFrm").submit(function(e){
+      $.ajax({data:$.param($(this).serializeArray()) + '&amp;authenticity_token=' + encodeURIComponent(authenticity_token),
+        dataType:'json',
+        type:'post',
+        async:true,
+        success:function(request){
+          clearAllEventWnd();
+          addEvent(request.events[0]);
+
+        },
+        failure:function(){
+          alert('添加事件失败');
+        },
+        url:'/events/quick_create'});
+      return false;
+    });
+
+    $("#delEventBt").click(function(e){
+      if (confirm('你确定吗？')) {
+        $.ajax({data:'_method=delete' + '&authenticity_token=' + encodeURIComponent(authenticity_token),
+          dataType:'html',
+          async:false,
+          success:function(request){clearAllEventWnd();delEvent(gCurId);},
+          type:'post',
+          url:'/events/'+gCurId});
+      }
+    });
+
+    $("#editEventBt").click(function(e){
+      location.href='/events/'+gCurId+'/edit';
+     /* unbindEvent();
+      $.ajax({
+        data:'authenticity_token=' + encodeURIComponent(authenticity_token),
+        async:true,
+        success:function(request){$('#cal_box').html(request);},
+        type:'get',
+        dataType:'html',
+        url:'/events/'+gCurId+'/edit'});
+        */
+    });
+  }
+
+  function updateEventToDb(evento)
+  {
+
+    var sd=new Date(evento.sDate);
+    var ed=new Date(evento.eDate);
+    var sdy=sd.getFullYear();
+    var sdm=sd.getMonth()+1;
+    var sdd=sd.getDate();
+    var sdt=(sd.getHours() < 10 ? '0' : '') + sd.getHours()+":"+ (sd.getMinutes() < 10 ? '0' : '') +sd.getMinutes();
+
+    var edy=ed.getFullYear();
+    var edm=ed.getMonth()+1;
+    var edd=ed.getDate();
+
+    var edt=(ed.getHours() < 10 ? '0' : '') + ed.getHours()+":"+ (ed.getMinutes() < 10 ? '0' : '') + ed.getMinutes() ;
+
+    $.ajax({
+      data:'id='+evento.id+'&sdy='+sdy+'&sdm='+sdm+'&sdd='+sdd+'&edy='+edy+'&edm='+edm+'&edd='+edd+'&sdt='+sdt+'&edt='+edt+'&authenticity_token=' + encodeURIComponent(authenticity_token),
+      async:false,
+      dataType:'json',
+      success:function(request){
+
+        updateEvent(request.events[0]);
+      },
+      type:'post',
+      url:'/events/update_eventdt'});
+    return false;
+
+  }
+  
+  function updateEventEdateToDb(evento)
+  {
+    var ed=new Date(evento.eDate);
+    var edy=ed.getFullYear();
+    var edm=ed.getMonth()+1;
+    var edd=ed.getDate();
+
+    var edt=(ed.getHours() < 10 ? '0' : '') + ed.getHours()+":"+ (ed.getMinutes() < 10 ? '0' : '') + ed.getMinutes() ;
+
+    $.ajax({
+      data:'id='+evento.id+'&edy='+edy+'&edm='+edm+'&edd='+edd+'&edt='+edt+'&authenticity_token=' + encodeURIComponent(authenticity_token),
+      async:false,
+      dataType:'json',
+      success:function(request){
+        updateEvent(request.events[0]);
+      },
+      type:'post',
+      url:'/events/update_eventedt'});
+    return false;
+  }
+
+function on_edite_detail() {
+    var $detail = $('#create_event_by_detail');
+    
+    $("#createFrm input").each( function(i) {
+        if ( $(this).is('[type=text],[type=hidden]') )
+            $(this).clone().val( $(this).val() ).appendTo( $detail );
+    } );
+    
+    $('#create_event_by_detail').submit();
+}
+</script>
+
+<input id="prev" type="button" value="<<" />
+<input id="next" type="button" value=">>" />
+<input id="today" type="button" value="今天" />
+<div style="width: 790px;float:left; ">
+  <div  id='mcr' class='mind_calender_right'>
+  </div>
+  <div id="tt">
+  </div>
+</div>
+<br />
+<br />
+<br />
+<div id="newEventWnd" class="popEventWnd">
+  <div class="content">
+    <form action="/events/quick_create" method="post" id="createFrm">
+      时间：<span></span><br />
+      <br />
+      标题：<input style="width: 200px;" id="titleInput" type="text"  name="titleInput"/><br />
+      <br />
+      <input type="hidden" name="cdty" id="cdty" value="">
+      <input type="hidden" name="cdtm" id="cdtm" value="">
+      <input type="hidden" name="cdtd" id="cdtd" value="">
+      <input type="hidden" name="cdtbt" id="cdtbt" value="">
+      <input type="hidden" name="cdtet" id="cdtet" value="">
+      <input id="createEventBt" name="createEventBt"  value="创建事件"  type="submit" />
+      <%= link_to_function "编辑活动详细信息", "on_edite_detail()" %>
+    </form>
+    <% form_tag new_event_path, :method => :post, :id => 'create_event_by_detail', :style => 'display: none;' do -%>
+
+    <% end -%>
+  </div>
+  <div>
+    <a id="cancelCreateEventBt" >
+      <img style="border-style: none" src="/images/error_16x16.png" /></a>
+  </div>
+  <div style="clear: both;">
+  </div>
+</div>
+<div id="eventWnd" class="popEventWnd">
+  <div class="content">
+    <a id="delEventBt">删除</a>
+    <a id="editEventBt">编辑</a>
+  </div>
+  <div>
+    <a >
+      <img style="border-style: none" src="/images/error_16x16.png" />
+    </a>
+  </div>
+</div>

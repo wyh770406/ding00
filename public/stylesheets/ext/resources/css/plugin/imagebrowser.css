@@ -1,0 +1,57 @@
+#img-chooser-view { 
+  background: white; 
+  font: 11px Arial, Helvetica, sans-serif;
+} 
+#img-browser-view .add-image {
+  background-image: url(../../images/ding00/grid/picture_add.png);
+}
+#img-browser-view .delete-image {
+  background-image: url(../../images/ding00/grid/picture_delete.png);
+}
+#img-browser-view .thumb {
+  position: relative;
+  background: white;
+  border: 1px solid #ccc;
+  width: 80px;
+  height: 80px;
+}
+#img-browser-view .thumb img {
+  position: absolute;
+}
+#img-browser-view .thumb-wrap { 
+  float: left; 
+  margin: 4px; 
+  margin-right: 0; 
+  padding: 5px;
+} 
+#img-browser-view .thumb-wrap span { 
+  display: block; 
+  overflow: hidden; 
+  text-align: center; 
+} 
+#img-browser-view .x-view-over {
+  border: 1px solid #dddddd; 
+  background: #efefef url('../../images/default/grid/row-over.gif') repeat-x left top; 
+  padding: 4px; 
+}
+#img-browser-view .x-view-selected { 
+  background: #ececec; 
+  border: 1px solid #f60; 
+  padding: 4px; 
+} 
+#img-browser-view .x-view-selected .thumb { 
+  background: transparent; 
+}
+#img-browser-view .x-view-selected span { 
+  color: #999;
+}
+#img-browser-view .loading-indicator { 
+  font-size: 11px; 
+  background-image: url('../ext/resources/images/grid/loading.gif'); 
+  background-repeat: no-repeat; 
+  background-position: left; 
+  padding-left: 20px; 
+  margin: 10px; 
+}
+
+.x-tbar-loading { width: 16px; height: 16px; }

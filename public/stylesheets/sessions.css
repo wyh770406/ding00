@@ -1,0 +1,31 @@
+.sessions-top-bar { text-align: right; padding: 20px 0; }
+.sessions-top-bar span { padding: 0 10px; }
+
+.sessions-top-logo { padding: 84px 0 0 0; background: url('/images/backgrounds/line_48x1.png') repeat-x left bottom; }
+.sessions-top-logo span { display: block; text-align: center; }
+.sessions-top-logo span.title { font-size: 32px; padding: 15px 0; }
+
+.sessions-top-desc { max-height: 210px; padding: 40px; }
+.sessions-top-desc .desc { margin: auto 0px; float: left; width: 460px; }
+.sessions-top-desc .desc .title { font-size: 18px; font-family: 黑体; }
+.sessions-top-desc .desc .content { margin: 15px 0; }
+.sessions-top-desc .desc .content p { text-indent: 24px; }
+.sessions-top-desc .news { margin: auto 0px; margin-left: 550px; }
+.sessions-top-desc .news .title { font-family: 黑体; font-size: 14px; }
+.sessions-top-desc .news .content { margin: 15px 0; }
+
+.sessions-login-frame { background-color: #ececec; padding: 10px 0 50px 0; overflow: hidden; }
+
+.sessions-login-frame .tip-box { height: 35px; margin-bottom: 5px; padding: 0 84px; text-align: left; width: 434px; }
+.flash-error span { background-color: #fff; }
+
+.sessions-login-frame ul { margin: 0 auto; width: 885px; height: 30px; }
+.sessions-login-frame ul li { display: block; float: left; margin: auto 5px; line-height: 30px; }
+.sessions-login-frame ul li.login { position: relative; }
+.sessions-login-frame ul li.login .forgetpwd { position: absolute; top: 25px; left: 57px; }
+
+
+.sessions-login-frame input { vertical-align: middle; }
+.sessions-login-frame input.text { width: 185px; height: 28px; line-height: 28px; color: #666; border: 1px solid #ccc; }
+
+.sessions-footer-container { height: 50px; }

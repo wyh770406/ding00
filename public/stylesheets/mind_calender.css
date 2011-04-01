@@ -1,0 +1,305 @@
+﻿
+.mind_calender
+{
+    text-align: center;
+    margin-right: auto;
+    width: 742px;
+    font-size: 12px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    color: White;
+    float: left;
+}
+
+
+.mind_calender_left
+{
+    border-width: 1px;
+    border-color: #cccccc;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    position: relative;
+}
+
+
+.mind_calender_right
+{
+    border-width: 1px;
+    border-color: #cccccc;
+    width: 45px;
+    border-bottom-style: solid;
+    color: Black;
+    float: left;
+}
+
+/******************/
+
+.mind_clender_dates td
+{
+    border-style: solid none solid solid;
+    border-width: 1px;
+    border-color: #cccccc #cccccc #cccccc #cccccc;
+    height: 48px;
+    background-color: #FFFFFF;
+}
+
+/******************/
+
+.mind_clender_date
+{
+    border-color: #CCCCCC;
+    border-width: 1px;
+    height: 19px;
+    background-repeat: repeat-x;
+    color: Black;
+}
+
+.mind_clender_date td
+{
+    border-width: 1px;
+    border-color: #CCCCCC;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    text-align: left;
+    border-top-style: solid;
+    border-left-style: solid;
+}
+
+/******************/
+
+.mind_clender_week
+{
+    height: 52px;
+    background-repeat: repeat-x;
+    font-size: 14px;
+}
+
+
+
+
+.mind_clender_week td
+{
+    border-color: #cccccc;
+    border-style: solid none none solid;
+    border-width: 1px;
+    height: 44px;
+    background-repeat: no-repeat;
+    color: #000000;
+    text-align: left;
+}
+
+.mind_clender_week td div
+{
+    margin-left: 8px;
+    margin-bottom: 18px;
+}
+
+#mcr ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+#mcr ul li
+{
+    border-color: #cccccc;
+    border-style: solid none none solid;
+    border-width: 1px;
+    height: 47px;
+    width: 44px;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+}
+
+
+#mcr ul li div
+{
+    height: 32px;
+    font-size: 12px;
+    padding-top: 15px;
+    font-weight: bold;
+    font-family: 幼圆;
+}
+
+
+.cell_odd
+{
+    border-style: solid none none solid;
+    border-width: 1px;
+    border-color: #CCCCCC #FFFFFF #FFFFFF #CCCCCC;
+    height: 25px; /*ff*/
+    height: 24px\9; /*all ie*/
+}
+
+.cell_even
+{
+    border-style: dotted none none solid;
+    border-width: 1px;
+    border-color: #CCCCCC #FFFFFF #FFFFFF #CCCCCC;
+    height: 25px; /*ff*/
+    height: 24px\9; /*all ie*/
+}
+
+
+/* ===== 事件框 ===== */
+.event_box
+{
+    font-size: 12px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    width: 106px;
+    height: 22px;
+    position: absolute;
+    z-index: auto;
+    top: 0px;
+    left: 0px;
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.event_box .time
+{
+    margin: 1px 0px 0px 1px;
+    height: 13px;
+    background-color: #333333;
+    padding-top: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.event_box .title
+{
+    cursor: pointer;
+    margin: 0px 0px 0px 1px;
+    background-color: #333333;
+    overflow: hidden;
+    filter: alpha(opacity=70); /* 用于IE浏览器－透明度为20%*/
+    -moz-opacity: 0.7; /*  用于Moz + Firefox－透明度为20%*/
+    opacity: 0.7;
+}
+
+.event_box .drag
+{
+    margin: 0px 0px 0px 1px;
+    text-align: center;
+    height: 8px;
+    font-size: 8px;
+    background-color: #333333;
+    cursor: n-resize;
+    filter: alpha(opacity=70); /* 用于IE浏览器－透明度为20%*/
+    -moz-opacity: 0.7; /*  用于Moz + Firefox－透明度为20%*/
+    opacity: 0.7;
+}
+
+/* ===== 事件框 结束 ===== */
+
+.day_box
+{
+    font-size: 12px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    position: absolute;
+    z-index: auto;
+    color: #FFFFFF;
+    filter: alpha(opacity=90); /* 用于IE浏览器－透明度为20%*/
+    -moz-opacity: 0.9; /*  用于Moz + Firefox－透明度为20%*/
+    opacity: 0.9;
+    cursor: move;
+}
+
+.day_box .bg
+{
+    border-width: 1px;
+    background-color: #666666;
+    padding-top: 5px;
+    height: 17px;
+    padding-left: 5px;
+    margin: 1px 1px 1px 2px;
+    padding-right: 5px;
+}
+
+.day_box .bg .title
+{
+    float: left;
+    white-space: nowrap;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.day_box .bg .title a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.day_box .bg .larrow
+{
+    float: left;
+    width: 5px;
+    color: #666666;
+}
+
+.day_box .bg .rarrow
+{
+    width: 5px;
+    float: right;
+    color: #666666;
+}
+
+#newEventDiv
+{
+    width: 107px;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+#newEventDiv div
+{
+    border: 1px solid #FFFFFF;
+    margin: 1px 1px 1px 1px;
+    background-color: #333333;
+    padding-top: 4px;
+    height: 18px;
+}
+
+/**************************/
+/*事件窗口*/
+
+
+.popEventWnd
+{
+    z-index: 999;
+    position: absolute; /*  display: none;*/
+    font-size: 12px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    text-align: left;
+    background-color: #FFFFFF;
+    border: 5px solid #999999;
+    padding: 2px;
+    display: none;
+}
+
+.popEventWnd .content
+{
+    padding: 15px 30px 15px 30px;
+    float: left;
+}
+
+
+/**************************/
+
+.arraw_down
+{
+    position: relative;
+    top: -1px;
+    background-image: url('../images/arrow_b.png');
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}

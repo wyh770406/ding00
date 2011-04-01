@@ -1,0 +1,7 @@
+<h1>当前头像</h1>
+<div class="avatar-preview">
+    <%= image_tag @user.avatar_url %>
+</div>
+<div class="button-row">
+    <%= link_to '完成', { :controller => :home, :action => :index }, :class => 'ctrl-button ctrl-button-orange' %>
+</div>

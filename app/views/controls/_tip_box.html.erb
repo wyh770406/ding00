@@ -1,0 +1,14 @@
+<div class="tip-box-frame">
+    <div class="tip-box-caption"><span><%= message.caption %></span></div>
+    <div class="tip-box-content">
+        <ul>
+            <% message.each do |msg| -%>
+                <li><%= msg %></li>
+            <% end -%>
+            <li class="tip-box-time"><span>3秒后自动关闭</span></li>
+        </ul>
+    </div>
+    <div class="tip-box-ctrls">
+        <%= link_to_function '关闭', '$.unblockUI(get_block_options())', :class => 'ctrl-button ctrl-button-orange' %>
+    </div>
+</div>

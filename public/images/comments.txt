@@ -1,0 +1,7 @@
+{"totalCount":"20","comments":
+	[
+		{"id":"1","avatar":"/images/default_event_100x100.png","replyid":"1","reply":"冬瓜","recvid":"2","recv":"张亚昆","date":"2011-01-30 10:33","content":"哈哈, 我一定去~这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, 这是测试长度, "},
+		{"id":"2","avatar":"/images/default_event_100x100.png","replyid":"1","reply":"冬瓜","recvid":"2","recv":"张亚昆","date":"2011-01-30 10:33","content":"哈哈, 我一定去~"},
+		{"id":"3","avatar":"/images/default_event_100x100.png","replyid":"1","reply":"冬瓜","recvid":"","recv":"","date":"2011-01-30 10:33","content":"哈哈, 我一定去~"}
+	]
+}

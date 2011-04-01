@@ -1,0 +1,13 @@
+冬瓜:
+    id:                 1
+    name:               冬瓜
+    email:              nimda_wen@hotmail.com
+    crypted_password:   ed73f898ed28489bac0b4f4072b96858459294e2
+    salt:               50baea5e61cb98a5b49c6fe9d2e957d50554884c
+    
+周文龙:
+    id:                 2
+    name:               周文龙
+    email:              meloncocoo@gmail.com
+    crypted_password:   6c07f94164e103d3b55de034a0b66664bbe2ddd2
+    salt:               62e7080d4d5e5a3d2d15a32e1b1a8575b98f75bd

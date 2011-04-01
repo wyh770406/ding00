@@ -1,0 +1,31 @@
+<div class="home-user-info">
+    <ul class="main-frame">
+        <li class="user-avatar"><%= image_tag user_info.avatar_url, :title => '我的头像' %></li>
+        <li class="user-name">
+            <div><span><%= user_info.name %></span></div>
+            <div><%if @online_flag%><%= image_tag 'bg.png', :title => '在线', :class => 'ctrl-icon ctrl-icon-online-35x35' %><%else%>
+                 <%= image_tag 'bg.png', :title => '不在线', :class => 'ctrl-icon ctrl-icon-offline-35x35' %><%end%></div>
+        </li>
+        <li class="user-attention">
+            <span><%= link_to "关注(#{user_info.attentions.length})", mine_attentions_url %></span>
+            <span><%= link_to "粉丝(#{user_info.fans.length})", fans_attentions_url %></span>
+            <span><%= link_to "相互关注(#{user_info.all_attentions.length})", all_attentions_url %></span>
+        </li>
+        <li class="user-edit-ctrl">
+            <%= yield :user_info_ctrls %>
+        </li>
+        <li class="info-sep"></li>
+        <li class="user-events">
+            <ul class="user-events-list">
+                <%@friends_behaviours.each do |behaviour|%>
+                  <%@get_options = get_behaviour_type behaviour.behaviour_type_id,behaviour.remark%>
+                  <%@behaviour_user_name = (behaviour.user==@current_user)?"我":behaviour.user.name%>
+                  <li><span class="font-color-666"><%=distance_of_time_in_words(behaviour.created_at, Time.now, true)%>前-</span><%= link_to @behaviour_user_name, {:controller=>:home,:action=>:friend,:id=>behaviour.user} %><span class="font-color-999"> <%=@get_options[:desc]%></span><span class="font-color-036"><%=@get_options[:val]%></span></li>
+                <%end unless @friends_behaviours.nil?%>
+            </ul>
+        </li>
+        <li class="user-events-more">
+            <%= link_to '更多...', 'javascript:void(0)', :title => '查询更多事件' %>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+<% add_javascript 'attention.controls' %>
+<% attention = current_user.attention user %>
+<% if !attention.nil? -%>
+
+    <div class="attention-cancel">
+        <span class="already">已关注</span><span class="sep">&nbsp</span>
+        <span class="cancel">
+            <%= link_to_remote '取消', :url => cancel_attentions_path( :id => attention.id ), 
+                :update => 'tip_box',
+                :before => '$(this).disable();',
+                :success => 'show_tip_box(request, function(){UpdatePartial(\'' + updatecontrols_attentions_path + '\', \'attention_ctrls\', ' + {:current_user_id => current_user.id, :user_id => user.id}.to_json + ')})', 
+                :failure => 'show_tip_box(request);' 
+            %>
+            <div class="cancel-tip">
+                <p>取消关注后，<br />他的更新将不会再出现在你的首页中。</p>
+            </div>
+        </span>
+    </div>
+<% else -%>
+    <%= link_to_remote '关注他', :url => attentions_url( :attention => { :user_id => current_user.id, :attention_id => user.id } ),
+            :update => 'tip_box',
+            :before => '$(this).disable();',
+            :success => 'show_tip_box(request, function(){UpdatePartial(\'' + updatecontrols_attentions_path + '\', \'attention_ctrls\', ' + {:current_user_id => current_user.id, :user_id => user.id}.to_json + ', reset_controls);})', 
+            :failure => 'show_tip_box(request)',
+            :html => { :class => 'ctrl-button ctrl-button-orange' }
+    %>
+<% end -%>

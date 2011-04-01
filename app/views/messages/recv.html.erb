@@ -1,0 +1,5 @@
+<%= pagetitle '收件箱' %>
+
+<% add_javascript( 'messages.recv' ) %>
+
+<%= render :partial => 'recv', :locals => { :messages => @messages } %>

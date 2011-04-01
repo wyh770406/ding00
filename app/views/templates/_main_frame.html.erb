@@ -1,0 +1,53 @@
+<%= generate_home_tool_bar %>
+
+<div class="home-events-container">
+    <div class="events-left-frame">
+        <div class="events-tabs">
+            <%= yield :events_tabs %>
+        </div>
+        
+        <div class="calendar-frame" id="calendar_frame">
+            <%= yield :calendar_frame %>
+        </div>
+        
+        <div class="right-frame-sep"></div>
+        <div class="news-frame">
+            <%= label_tag '', '最新动态' %>
+            <ul>
+                <%@self_behaviours.each do |behaviour|%>
+                  <%@get_options = get_behaviour_type behaviour.behaviour_type_id,behaviour.remark%>
+                  <%@behaviour_user_name = (behaviour.user==@current_user)?"我":behaviour.user.name%>
+                  <li><span class="font-color-666"><%=distance_of_time_in_words(behaviour.created_at, Time.now, true)%>前-</span><%= link_to @behaviour_user_name, {:controller=>:home,:action=>:friend,:id=>behaviour.user} %><span class="font-color-999"> <%=@get_options[:desc]%></span><span class="font-color-036"><%=@get_options[:val]%></span></li>
+                <%end unless @self_behaviours.nil?%>
+            </ul>
+        </div>
+    </div>
+    <div class="events-right-frame">
+        <div class="right-sub-frame" id="home_friends_list">
+            <%= label_tag '', '和我一样' %>
+            <ul class="user-list">
+                
+            </ul>
+        </div>
+        
+        <div class="right-frame-sep"></div>
+        <div class="right-sub-frame" id="attention_friends_list">
+            <%= label_tag '', '相互关注' %>
+            <ul class="user-list">
+                
+            </ul>
+        </div>
+        
+        <div class="right-frame-sep"></div>
+        <div class="right-sub-frame">
+            <%= label_tag '', '总有一天' %>
+            <ul class="one-day-events">
+                <%@self_favorites.each do |favorite|%>
+                    <li class="event-content"><%= link_to favorite.title, event_path(favorite) %></li>
+                <%end unless @self_favorites.nil?%>
+
+                <li class="more-events"><%= link_to '更多...', 'javascript:void(0)' %></li>
+            </ul>
+        </div>
+    </div>
+</div>

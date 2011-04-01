@@ -1,0 +1,33 @@
+<% pagetitle '完善基本资料' %>
+<% add_javascript('controls/jquery.photoeditor.js') %>
+<% add_javascript('register.baseinfo.js') %>
+
+<div class="register-container">
+    <div class="register-tip">
+        <span class="font-color-active">注册成功！ <%= @user.name %>，欢迎加入叮呤呤。</span>
+    </div>
+
+    <div class="base-info font-color-666">
+        <div class="base-info-row">
+            <span>完善基本资料</span>
+        </div>
+        
+        <% form_for :user, :url => update_baseinfo_users_path(:id => @user.id) do |f| %>
+            <div class="base-info-row">
+                <span class="caption">性别</span>
+                <span><%= f.radio_button :sex, true %><%= label_tag 'user_sex_true', '男' %></span>
+                <span><%= f.radio_button :sex, false %><%= label_tag 'user_sex_false', '女' %></span>
+            </div>
+            <div class="base-info-row">
+                <span class="caption">生日</span>
+                <span><%= select_year(@user.birthday, :prefix => 'user', :prompt => '请选择', :start_year => 2005, :end_year => 1950, :default => '-1') %><%= label_tag 'user_year', '年' %></span>
+                <span><%= select_month(@user.birthday, :prefix => 'user', :prompt => '请选择', :use_month_numbers => true, :selected => '0') %><%= label_tag 'user_month', '月' %></span>
+                <span><%= select_day(@user.birthday, :prefix => 'user', :prompt => '请选择') %><%= label_tag 'user_day', '日' %></span>
+            </div>
+            
+            <div class="button-row">
+                <%= submit_tag '保存', :class => 'ctrl-button ctrl-button-orange' %>&nbsp
+            </div>
+        <% end %>
+    </div>
+</div>

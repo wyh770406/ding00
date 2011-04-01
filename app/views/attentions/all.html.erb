@@ -1,0 +1,25 @@
+<% pagetitle '相互关注' %>
+
+<% content_for :user_info_ctrls, 
+    generate_userinfo_ctrls( :buttons => [ { :title => '编辑资料', :link => edit_user_path(:id => @user.id) } ], 
+        :button_class => 'ctrl-button ctrl-button-orange' )
+%>
+
+<ul class="attentions-user-list attentions-operable">
+    <% 24.times do |i| -%>
+        <%= content_tag(:li, '', :class => 'top') if i % 6 == 0 %>
+        <%= content_tag(:li, '', :class => 'sep') unless i % 6 == 0 %>
+        <li>
+            <% if i < @user.all_attentions.length %>
+                <div class="attentions-item">
+                <%= image_tag @user.all_attentions[i].user.avatar_url, :title => '' %><br />
+                <%= link_to @user.all_attentions[i].user.name, { :controller => :home, :action => :friend, :id => @user.all_attentions[i].user.id }, :title => '' %>
+                </div>
+            <% end %>
+        </li>
+    <% end %>
+    <%= content_tag(:li, '', :class => 'top') %>
+</ul>
+<div class="attentions-list-more">
+    <%= link_to '更多...', 'javascript:void(0)' %>
+</div>

@@ -1,0 +1,30 @@
+.attentions-container { background-color: #ececec; padding: 10px; overflow: hidden; }
+.attentions-frame { border: 1px solid #ccc; background-color: #fff; }
+.attentions-tabs { border-bottom: 1px solid #ccc; height: 31px; text-align: center; padding-top: 20px; }
+.attentions-tabs ul { }
+.attentions-tabs ul li { display: inline; zoom: 1; padding: 0; margin: 0; margin: 0 2px; position: relative; height: 30px; }
+.attentions-tabs ul li a { width: 117px; height: 30px; line-height: 30px; font-size: 14px; color: #666; text-decoration: none; }
+.attentions-tabs ul li a { border: 1px solid #ccc; border-bottom: none; background-color: #fff; }
+.attentions-tabs ul li a:hover { color: #f60; }
+.attentions-tabs ul li a.active { position: relative; height: 31px; z-index: 100; color: #f60; }
+
+ul.attentions-user-list { margin: 10px 0; overflow: hidden; padding-left: 2px; }
+ul.attentions-user-list li { text-align: center; display: block; float: left; height: 160px; width: 150px; }
+ul.attentions-user-list li.top { width: 100%; height: 1px; background: url('/images/backgrounds/line_48x1.png') repeat-x center left; }
+ul.attentions-user-list li.sep { width: 5px; height: 160px; background: url('/images/backgrounds/dashed_1x19.png') repeat-y top center; }
+ul.attentions-user-list li a { font-size: 14px; color: #f60; }
+ul.attentions-user-list li img { margin-top: 15px; width: 115px; height: 115px; }
+ul.attentions-user-list div.attentions-item { height: 160px; overflow: hidden; }
+
+ul.attentions-user-list li .cancel-attention { display: block; font-size: 12px; border: 1px solid #ccc; }
+
+.attentions-list-more { text-align: right; padding: 10px; padding-top: 0; }
+.attentions-list-more a { font-size: 14px; line-height: 14px; color: #999; }
+
+.attentions-operable-ctrls { border: 1px solid #ccc; padding: 2px 5px; margin-top: 120px; background-color: #fff; }
+.attentions-operable-ctrls a { font-size: 12px; }
+
+/*
+ * attention operations box
+ */
+.attentions-operations-box { padding: 3px; border: 1px solid #f60; }

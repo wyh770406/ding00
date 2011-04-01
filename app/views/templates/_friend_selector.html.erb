@@ -1,0 +1,36 @@
+<div class="friend-selector-frame">
+    <div class="ctrls-box">
+        <div class="ctrls-box-left">
+            <%= link_to '筛选好友', 'javascript:void(0)', :class => 'ctrl-button ctrl-button-filter' %>
+        </div>
+        <div class="ctrls-box-right">
+            <ul>
+                <li class="ctrl"><%= link_to '全部', 'javascript:void(0)', :page => 'all-friends', :class => 'tabs ctrl-button ctrl-button-66x26' %></li>
+                <li class="ctrl"><%= link_to '已选', 'javascript:void(0)', :page => 'selected-friends', :class => 'tabs ctrl-button disactive' %></li>
+                <li class="ctrl"><%= link_to '未选', 'javascript:void(0)', :page => 'unselected-friends', :class => 'tabs ctrl-button disactive' %></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="friends-box">
+        <ul class="all-friends"></ul>
+        <ul class="selected-friends"></ul>
+        <ul class="unselected-friends"></ul>
+    </div>
+    
+    <div class="ctrls-box">
+        <div class="ctrls-box-left">
+            <span><%= link_to '确定', 'javascript:void(0)', :class => 'ctrl-button ctrl-button-66x26 ok' %></span>
+            <span><%= link_to '邀请QQ,MSN好友', 'javascript:void(0)', :class => 'orange' %></span>
+        </div>
+        <div class="ctrls-box-right">
+            <span><%= link_to '1', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '2', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '3', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '4', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '5', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '下一页', 'javascript:void(0)', :class => 'orange' %></span>
+            <span><%= link_to '首页', 'javascript:void(0)', :class => 'orange' %></span>
+        </div>
+    </div>
+</div>

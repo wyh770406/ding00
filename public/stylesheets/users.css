@@ -1,0 +1,94 @@
+.register-top-container { padding: 20px 0 18px 0; background: url('/images/backgrounds/line_48x1.png') repeat-x left bottom; }
+
+.register-container { padding: 30px 80px; margin-bottom: 50px; }
+.register-container .register-tip span { font-size: 18px; font-family: 黑体; padding: 0 45px; line-height: 45px; }
+
+.button-row { padding-top: 40px; }
+
+.regitster-form .field-row { height: 46px; line-height: 46px; margin: 10px 0; }
+.regitster-form label.caption { font-size: 14px; display: block; width: 60px; height: 46px; line-height: 46px; float: left; }
+.regitster-form input.text { width: 225px; line-height: 28px; height: 28px; border: 1px solid #ccc; }
+.regitster-form .field-row li { display: block; line-height: 44px; float: left; }
+.regitster-form .field-row li span { display: block; float: left; }
+.regitster-form .field-row li img { display: none; vertical-align: middle; }
+.regitster-form .field-row a { color: #f60; }
+.regitster-form .field-row li span.tip-box { display: none; border: 1px solid #f60; background-color: #fcc; padding: 0 30px; width: 220px; }
+
+.base-info .base-info-row { overflow: hidden; }
+.base-info .base-info-row span { display: block; float: left; line-height: 40px; font-size: 14px; }
+.base-info .base-info-row span.caption { width: 50px; }
+.base-info .base-info-row span label { font-size: 14px; }
+
+.base-info .avatar-frame { }
+
+.avatar-frame h1 { font-size: 12px; color: #666; border-bottom: 1px solid #ccc; line-height: 20px; padding: 0; margin: 0 2px; }
+.avatar-frame h2 { font-size: 12px; color: #999; font-weight: normal; padding: 0; margin: 10px 2px; }
+.avatar-frame .view-box { width: 50%; float: left; padding: 8px 0; padding-right: 25px; }
+.avatar-frame .ctrl-box { margin-left: 50%; padding: 8px 0; padding-left: 25px; overflow: hidden; }
+.avatar-frame .ctrl-box input.fileload { height: 24px; line-height: 20px; width: 300px; }
+.avatar-frame .ctrl-box input.upload { line-height: 16px; margin-top: 5px; }
+
+.avatar-frame .avatar-preview { margin-top: 10px; }
+.avatar-frame .avatar-preview img { width: 115px; height: 115px; border: 1px solid #ccc; padding: 5px; }
+
+.avatar-frame .avatar-editor-ctrl { padding-left: 45px; }
+.avatar-frame .avatar-editor-ctrl span { display: inline; margin: 0 5px; }
+
+#avatar-editor { padding: 10px 48px; }
+
+/*
+ user.show
+*/
+.user-details-show { margin-bottom: 140px; }
+.user-details-show h1 { font-size: 18px; color: #f60; line-height: 60px; padding-left: 120px; font-family: 黑体; font-weight: lighter; }
+.user-details-show .base-frame { float: left; border: 1px solid #ccc; background-color: #ececec; height: 400px; margin-right: 10px; }
+.user-details-show .container { margin: 10px; }
+
+.user-details-show .avatar img { padding: 10px; border: 1px solid #ccc; background: #fff; width: 115px; height: 115px; }
+
+.user-details-show .info { width: 300px; }
+.user-details-show .info ul li { margin-bottom: 10px; line-height: 30px; color: #666; }
+.user-details-show .info label { width: 55px; display: block; float: left; font-size: 14px; }
+.user-details-show .info span { font-size: 14px; }
+.user-details-show .info span.user-name { font-size: 24px; color: #666; font-family: 黑体; }.
+.user-details-show .info span.mark-text { display: block; float: left; }
+.user-details-show .info span.mark-text textarea { width: 265px; height: 150px; overflow: auto; border: 1px solid #ccc; padding: 5px; }
+
+.user-details-show .ctrls { float: left; }
+.user-details-show .ctrls a { margin-bottom: 10px; }
+
+/*
+ user.edit
+*/
+.user-details-edit { margin-bottom: 140px; }
+.user-details-edit h1 { font-size: 18px; color: #f60; line-height: 60px; padding-left: 120px; font-family: 黑体; font-weight: lighter; }
+.user-details-edit .base-frame { float: left; border: 1px solid #ccc; background-color: #ececec; height: 400px; margin-right: 10px; }
+.user-details-edit .container { margin: 10px; }
+
+.user-details-edit .avatar { text-align: right; }
+.user-details-edit .avatar img { padding: 10px; border: 1px solid #ccc; background: #fff; width: 115px; height: 115px; }
+.user-details-edit .avatar a { margin-top: 10px; }
+
+.user-details-edit .info { width: 300px; }
+.user-details-edit .info input.text { width: 205px; height: 28px; line-height: 28px; border: 1px solid #ccc; padding: 0 5px; }
+.user-details-edit .info select { width: auto; }
+.user-details-edit .info ul li { margin-bottom: 10px; line-height: 30px; color: #666; }
+.user-details-edit .info span.caption { width: 55px; display: block; float: left; font-size: 14px; }
+.user-details-edit .info span { font-size: 14px; }
+.user-details-edit .info span.user-name { font-size: 24px; color: #666; font-family: 黑体; }
+.user-details-edit .info span.mark-text { display: block; float: left; }
+.user-details-edit .info span.mark-text textarea { width: 265px; height: 150px; overflow: auto; border: 1px solid #ccc; padding: 5px; }
+
+.user-details-edit .ctrls { float: left; overflow: hidden; }
+.user-details-edit .ctrls a { margin-top: 10px; }
+
+.user-details-edit .edit-tip-box { border: 1px solid #f60; background-color: #fcc; line-height: 45px; text-align: center; margin-top: 182px; }
+.user-details-edit .edit-tip-box span { font-size: 12px; color: #666; }
+
+.avatar-editor-container { padding: 20px; display: none; }
+.avatar-editor-container h1 { font-size: 12px; color: #999; font-weight: normal; padding: 0; margin: 10px 2px; }
+.avatar-editor-container .avatar-editor-ctrl { padding-left: 45px; }
+.avatar-editor-container .avatar-editor-ctrl span { display: inline; margin: 0 5px; }
+
+.avatar-upload-container { padding: 20px; text-align: left; display: none; }
+.avatar-upload-container h1 { font-size: 12px; color: #999; font-weight: normal; padding: 0; margin: 10px 2px; }

@@ -1,0 +1,23 @@
+<div class="msg-reply-receive">
+    <div class="receive-user-info">
+        <div class="column">
+            <span><%= link_to image_tag(message.receiver.avatar_url, :title => '', :class => 'user-avatar'), { :controller => :home, :action => :friend, :id => message.receiver.id } %></span>
+        </div>
+        <div class="column user-info">
+            <div class="user-name"><span><%= link_to message.receiver.name, { :controller => :home, :action => :friend, :id => message.receiver.id } %></span><span><%= message.receiver.sex_text %></span></div>
+            <div class="address"><span><%= message.receiver.userdetail.nil?? '' : message.receiver.userdetail.now_address %></span></div>
+        </div>
+        <div class="column datetime">
+            <span><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </div>
+    </div>
+    <div class="receive-content">
+        <p class="title"><%= message.title %></p>
+        <p class="content"><%= message.content %></p>
+    </div>
+</div>
+
+<div class="msg-reply-ctrls">
+    <span><%= link_to '发送', 'javascrpt:void(0)', :class => 'ctrl-button ctrl-button-93x30' %></span>
+    <span><%= link_to_function '返回发件箱', update_partial(:url => backsent_messages_url(:update => 'msg_inner_frame')), :href => 'javascript:void(0)', :class => 'ctrl-button ctrl-button-cancel' %></span>
+</div>

@@ -1,0 +1,102 @@
+<% pagetitle( @event.title ) %>
+<% add_javascript('events.show') %>
+
+<%= hidden_field_tag 'event_id', @event.id %>
+<div class="event-show-frame">
+    <div class="event-show-main">
+        <p class="top-text">
+            <%= link_to '< 返回日历', { :controller => :home, :action => :index }, :class => 'high-light' %></p>
+        <h1>
+            <%= @event.title %></h1>
+        <div class="event-info">
+            <div style="float: left; min-height: 174px; min-width: 174px;">
+                <img src="<%= @event.cover_url %>" alt="<%= @event.title %>" class="topic" />
+            </div>
+            <div>
+                <p>
+                    <span class="title">开始时间:</span><%=@event.begin_sdt%></p>
+                <p>
+                    <span class="title">结束时间:</span><%=@event.end_sdt%></p>
+                <p>
+                    <span class="title">地点:</span><%=@event.address%></p>
+                <p>
+                    <span class="title">发起人:</span><%=@event.user.name%></p>
+                <p>
+                    <span class="title">类型:</span><%=@event.type_name%></p>
+                <table cellspacing="0" class="event-info-ctrls" id="event_buttons">
+                    <tr>
+                        <td class="ctrls"><span class="high-light" id="favorite_count"><%=@event.favorite_count%></span>人收藏</td>
+                        <td class="ctrls"><span class="high-light" id="attending_count"><%=@event.attending_count%></span>人参加</td>
+                        <td class="ctrls">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+                <p>
+                </p>
+                <p>
+                    <span>标签:</span> <a href="javascript:void(0)">展览</a> <a href="javascript:void(0)">艺术</a>
+                    <a href="javascript:void(0)">受用</a> <a href="javascript:void(0)">上海</a> <a href="javascript:void(0)">
+                        经典</a>
+                    <!-- <span>|</span>
+           <a href="javascript:void(0)" title="编辑标签" class="high-light">编辑标签</a>-->
+                </p>
+            </div>
+        </div>
+        <div class="related">
+            <img src="/images/backgrounds/relatedbrand_32x105.png" width="32" height="105" alt="相关品牌" />
+            <img src="/images/default_event_100x100.png" width="85" height="85" />
+            <img src="/images/default_event_100x100.png" width="85" height="85" />
+            <img src="/images/default_event_100x100.png" width="85" height="85" />
+        </div>
+        <div class="dashed-line">
+        </div>
+        <div>
+            <h1>
+                内容:</h1>
+            <div class="content">
+                <%= @event.description %></div>
+        </div>
+        <div class="page-controls">
+            <div class="previous">
+                <a href="javascript:void(0)" class="high-light">上一篇: 打酱油</a></div>
+            <div class="next">
+                <a href="javascript:void(0)" class="high-light">下一篇: babyface bar...</a>
+            </div>
+        </div>
+        
+        <div class="clear dashed-line"></div>
+        
+        <div class="comments">
+            <div class="reply">
+                <div class="title">您的回应......</div>
+                <div id="reply-frame"></div>
+            </div>
+            
+            <div class="items" id="event-comments"></div>
+        </div>
+        
+    </div>
+    <div class="event-show-right">
+        <div>
+            <div class="caption">
+                <h1>
+                    这个活动的参加者</h1>
+                <span class="more-link"><a href="javascript:void(0)">更多</a></span>
+            </div>
+            <div id="attending_user">
+                <%=render :partial=>"attending_users", :locals => {:attending_users=>@event.attending_users}%>
+            </div>
+        </div>
+        <div class="seperator">
+        </div>
+        <div>
+            <div class="caption">
+                <h1>
+                    收藏此活动的人</h1>
+                <span class="more-link"><a href="javascript:void(0)">更多</a></span>
+            </div>
+            <div id="favor_user">
+                <%=render :partial=>"favorite_users", :locals => {:favorite_users=>@event.favorite_users}%>
+            </div>
+        </div>
+    </div>
+</div>

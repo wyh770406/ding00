@@ -1,0 +1,133 @@
+<% pagetitle '创建事件' %>
+
+<% add_stylesheet('ext/resources/css/plugin/imagebrowser') %>
+<% add_stylesheet('friend_selector') %>
+
+<% add_javascript('ext/plugin/loadingindicator') %>
+<% add_javascript('ext/plugin/fileuploadbutton') %>
+<% add_javascript('ext/plugin/imagebrowser') %>
+<% add_javascript('ext/plugin/imageselectdialog') %>
+<% add_javascript('ext/plugin/htmleditorimage') %>
+<% add_javascript('ext/ext-lang-zh_CN') %>
+<% add_javascript('friend.selector') %>
+<% add_javascript('events.new') %>
+
+<% form_for :event, :url => events_path,:html => {:id => 'event_detail_form', :multipart => true, :target => 'upload_frame'} do |f| -%>
+
+<%= hidden_field_tag 'begin_at_value', @event.begin_at %>
+<%= hidden_field_tag 'begin_time_value', @event.begin_time %>
+<%= hidden_field_tag 'end_at_value', @event.end_at %>
+<%= hidden_field_tag 'end_time_value', @event.end_time %>
+<%= f.hidden_field :cover_url %>
+<%= f.hidden_field 'invitations', :url_for => url_for(:controller => :users, :action => :load_event_friends_list, :id => @current_user.id) %>
+
+<div class="edit-detail-frame">
+    <h1>创建事件</h1>
+    <table width="100%" cellspacing="0">
+        <tr class="top-space"><td colspan="2"></td></tr>
+        <tr class="field-set-row">
+            <td class="title"><label>标题</label></td>
+            <td><%= f.text_field :title, :class => 'all-row-text' %></td>
+        </tr>
+        <tr class="field-set-row">
+            <td class="title"><label>时间</label></td>
+            <td>
+                <table cellspacing="0">
+                    <tr>
+                        <td id="begin_at"></td>
+                        <td>&nbsp</td>
+                        <td id="begin_time"></td>
+                        <td>&nbsp</td>
+                        <td>到</td>
+                        <td>&nbsp</td>
+                        <td id="end_at"></td>
+                        <td>&nbsp</td>
+                        <td id="end_time"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="field-set-row">
+            <td class="title"><label>地点</label></td>
+            <td><%= f.text_field :address, :class => 'all-row-text' %></td>
+        </tr>
+        <tr>
+            <td class="title"><label>备注</label></td>
+            <td><%= f.text_area :description, :class => 'all-row-area' %></td>
+        </tr>
+        <tr>
+            <td colspan="2"><img src="/images/bg.png" alt="" class="row-sep" /></td>
+        </tr>
+        <tr>
+            <td class="title"><label>封面</label></td>
+            <td id="btn_cover"></td>
+        </tr>
+        <tr>
+            <td class="title"></td>
+            <td id="cover-td-frame"><img src="<%= @event.cover_url %>" alt="" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><img src="/images/bg.png" alt="" class="row-sep" /></td>
+        </tr>
+        <tr>
+            <td class="title"><label>提醒</label></td>
+            <td>
+                <table cellspacing="0" class="sub-table">
+                    <tr class="sub-row">
+                        <td><select name="state" id="remind_type"><option value="email">电子邮件</option></select></td>
+                        <td><input type="text" style="width: 20px; height: 18px; text-align: right;" maxlength="5" value="10" /></td>
+                        <td><select name="state" id="remind_time_type"><option value="minute" selected>分钟</option><option value="hour">小时</option></select></td>
+                        <td><a href="javascript:void(0)" title="删除"><img src="/images/bg.png" alt="" class="icon-remove" /></a></td>
+                    </tr>
+                    <tr class="sub-row">
+                        <td colspan="4" id="btn_remind"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+         <tr>
+            <td colspan="2"><img src="/images/bg.png" alt="" class="row-sep" /></td>
+        </tr>
+        <tr>
+            <td class="title"><label>邀请</label></td>
+            <td id="btn_invitation"></td>
+        </tr>
+        <tr id="select_friend_num">
+            <td class="title"></td>
+            <td class="selection_tip"><%= "已选择好友(#{@event.eventInvitations.size})" %></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="friend_selector" class="friend_selector"><%= render :partial => 'templates/friend_selector' %></td>
+        </tr>
+         <tr>
+            <td colspan="2"><img src="/images/bg.png" alt="" class="row-sep" /></td>
+        </tr>
+        <tr>
+            <td class="title"><label>隐私</label></td>
+            <td>
+                <table cellspacing="0" class="sub-table">
+                    <tr class="sub-row"><td><%= f.radio_button 'private','0',:checked => true %><!--<input type="radio" value="public" name="privacy_public" />--><label for="privacy_public">公开</label></td></tr>
+                    <tr class="sub-row"><td><%= f.radio_button 'private','1' %><label for="privacy_private">私人</label></td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td>&nbsp</td></tr>
+        <tr>
+            <td class="title"></td>
+            <td>
+                <table cellspacing="0" class="sub-table">
+                    <tr>
+                        <td id="btn_save"></td>
+                        <td>&nbsp</td>
+                        <td id="btn_cancel"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+   </table>
+</div>
+
+<% end -%>
+<div class="edit-detail-bottom"></div>
+
+<iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>

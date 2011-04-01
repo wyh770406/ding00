@@ -1,0 +1,108 @@
+.messages-container { color: #666; }
+
+.messages-container .h-dashed { height: 1px; background: url('/images/backgrounds/line_48x1.png') repeat-x center center; }
+.messages-container .outer-frame { background-color: #ececec; padding: 20px 10px 10px 10px; margin: 20px 0 0 0; }
+
+.messages-container .controls { height: 31px; text-align: center; }
+.messages-container .controls ul { }
+.messages-container .controls ul li { display: inline; zoom: 1; padding: 0; margin: 0; margin: 0 2px; position: relative; height: 30px; }
+.messages-container .controls ul li a { width: 117px; height: 30px; line-height: 30px; font-size: 14px; color: #666; text-decoration: none; }
+.messages-container .controls ul li a { border: 1px solid #ccc; border-bottom: none; background-color: #fff; }
+.messages-container .controls ul li a:hover { color: #f60; }
+.messages-container .controls ul li a.active { position: relative; height: 31px; z-index: 100; color: #f60; }
+
+.messages-container .inner-frame { border: 1px solid #ccc; background-color: #fff; padding: 20px; overflow: hidden; }
+
+.messages-container .caption { width: 100px; text-align: left; }
+.messages-container .caption input { margin-left: 20px; vertical-align: middle; }
+.messages-container .caption label { padding: 0 10px; }
+.messages-container .msg-controls { }
+.messages-container .msg-controls .confirm-frame { top: 35px; left: 0; }
+.messages-container .msg-controls .item { float: left; line-height: 35px; color: #666; font-size: 14px; }
+
+.msg-lists { }
+.msg-lists ul li { margin: 0; border: none; height: 60px; }
+.msg-lists .caption { float: left; line-height: 60px; }
+.msg-lists .caption img { vertical-align: middle; }
+.msg-lists .msg-frame { border: 1px solid #ccc; border-bottom: none; margin-left: 100px; padding: 5px; height: 50px; }
+.msg-lists .last-frame { border-bottom: 1px solid #ccc; }
+
+.msg-lists .msg-frame .item { float: left; color: #666; }
+.msg-lists .msg-frame .item img { border: none; width: 50px; height: 50px; }
+
+.msg-lists .msg-frame .user-info { width: 130px; margin: 5px 10px; }
+.msg-lists .msg-frame .user-info .user-name span { margin-right: 10px; display: inline-block; zoom: 1; line-height: 20px; }
+.msg-lists .msg-frame .user-info .user-name span a { color: #f60; }
+.msg-lists .msg-frame .user-info .address span { margin-right: 10px; }
+
+.msg-lists .msg-frame .content { width: 350px; padding: 5px; }
+.msg-lists .msg-frame span { display: block; }
+.msg-lists .msg-frame span.unread { font-weight: bold; }
+
+.msg-lists .msg-frame .datetime { line-height: 50px; width: 150px; }
+
+.msg-lists .msg-frame .operations { width: 60px; text-align: right; }
+.msg-lists .msg-frame .operations span { line-height: 50px; overflow: visible; }
+.msg-lists .msg-frame .operations a.close { border: 1px solid #ccc; display: inline-block; zoom: 1; padding: 2px; }
+.msg-lists .msg-frame .operations a.close img { background: url('/images/bgpic.png') no-repeat -150px 0; width: 9px; height: 9px; vertical-align: middle; }
+.msg-lists .msg-frame .operations .confirm-frame { top: 35px; right: 0px; }
+
+.msg-pages { text-align: right; margin-top: 20px; line-height: 20px; }
+.msg-pages span, .msg-pages a { display: inline-block; text-align: center; padding: 0 5px; overflow: visible; border: 1px solid #ccc; text-decoration: none; }
+.msg-pages span.disabled { background-color: #ececec; }
+.msg-pages .prev_page { display: inline-block; zoom: 1; padding: 0 5px 0 12px; background: #fff url('/images/bgpic.png') no-repeat -95px 7px; border: 1px solid #ccc; }
+.msg-pages span.current { border: none; color: #f60; }
+.msg-pages .next_page { display: inline-block; zoom: 1; padding: 0 12px 0 5px; background: #fff url('/images/bgpic.png') no-repeat -5px 7px; border: 1px solid #ccc; }
+
+.write-msg-left { float: left; width: 450px; overflow: hidden; }
+
+div.write-msg-row { margin-bottom: 10px; overflow: hidden; }
+div.write-msg-row span { display: inline-block; zoom: 1; line-height: 28px; float: left; }
+span.write-msg-title { width: 90px; text-align: right; padding-right: 10px; }
+span.write-msg-field { position: relative; }
+span.write-msg-field input { border: 1px solid #ccc; width: 330px; height: 28px; line-height: 28px; padding: 0 5px; }
+span.write-msg-field textarea { border: 1px solid #ccc; width: 330px; height: 285px; line-height: 28px; padding: 0 5px; vertical-align: bottom; }
+
+.write-msg-right { margin-left: 520px; height: 377px; }
+.write-msg-right .friends-list { height: 365px; width: 270px; border: 1px solid #ccc; overflow-y: scroll; }
+.write-msg-right .friends-list .row { line-height: 28px; }
+.write-msg-right .friends-list .group-caption { border-bottom: 1px solid #ccc; cursor: pointer; font-weight: bold; }
+.write-msg-right .friends-list .group-caption img.group-icon { background: url('/images/bgpic.png') no-repeat 0 -150px; width: 9px; height: 9px; margin: 0 10px; vertical-align: middle; }
+.write-msg-right .friends-list .group-caption:hover { background-color: #ececec; }
+.write-msg-right .friends-list .group-caption img.group-opened { background-position: -300px -150px; width: 9px; height: 9px; }
+
+.write-msg-right .friends-list ul { display: none; }
+.write-msg-right .friends-list ul li { line-height: 28px; padding: 0 10px; cursor: pointer; }
+.write-msg-right .friends-list ul li.focus, .write-msg-right .friends-list ul li:hover { background-color: #ececec; }
+
+.write-msg-ctrls { padding: 0 0 0 100px; line-height: 30px; }
+
+.ctrl-address-box { display: none; border: 1px solid #f60; padding: 2px; float: left; position: absolute; top: 4px; left: 4px; height: 16px; line-height: 16px; background-color: #fff; }
+.ctrl-address-box span.addressee { line-height: 16px; margin: 0 2px; }
+.ctrl-address-box img.close { background: url('/images/bgpic.png') no-repeat -150px 0; width: 9px; height: 9px; vertical-align: middle; }
+
+.msg-reply-receive {}
+.msg-reply-receive .receive-user-info { margin-left: 100px; border: 1px solid #ccc; height: 55px; padding: 5px; }
+.msg-reply-receive .receive-user-info .column { float: left; margin-right: 10px; }
+.msg-reply-receive .receive-user-info img.user-avatar { width: 55px; height: 55px; }
+
+.msg-reply-receive .receive-user-info .user-info { padding: 10px 0; width: 500px; }
+.msg-reply-receive .receive-user-info .user-info .user-name span { margin-right: 10px; display: inline-block; zoom: 1; line-height: 20px; }
+.msg-reply-receive .receive-user-info .user-info .user-name span a { color: #f60; }
+.msg-reply-receive .receive-user-info .datetime { line-height: 55px; }
+
+.msg-reply-receive .receive-content { margin-left: 100px; border: 1px solid #ccc; border-top: none; padding: 10px; }
+.msg-reply-receive .receive-content p.content { height: 155px; overflow-y: auto; text-indent: 24px; }
+.msg-reply-receive .receive-content p.title { font-weight: bold; line-height: 30px; }
+
+.msg-reply-reply { margin-top: 10px; overflow: hidden; }
+.msg-reply-reply .caption { width: 100px; text-align: right; float: left; }
+.msg-reply-reply .caption span { padding: 0 10px; line-height: 30px; }
+.msg-reply-reply .reply-content { margin-left: 100px; border: 1px solid #ccc; }
+.msg-reply-reply .reply-content textarea { border: none; outer-line: none; width: 765px; height: 210px; padding: 10px; }
+
+.msg-reply-ctrls { padding: 0 0 0 100px; margin-top: 10px; }
+
+.flash-error { padding: 0 100px; margin-bottom: 10px; }
+
+.confirm-frame { top: 30px; }

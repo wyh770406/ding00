@@ -1,0 +1,40 @@
+<% pagetitle '上传头像' %>
+<% add_javascript('controls/jquery.photoeditor') %>
+<% add_javascript('user.avatar') %>
+
+<div class="register-container">
+    <div class="register-tip">
+        <span class="font-color-active">上传头像</span>
+    </div>
+    
+    <div class="base-info font-color-666">
+        <div class="base-info-row">
+            <span class="caption">头像</span>
+            <div class="avatar-frame">
+                <div class="view-box" id="avatar_view_box">
+                    <%= render :partial => 'current_avatar' %>
+                </div>
+                <div class="ctrl-box">
+                    <h1>更换头像</h1>
+                    <h2>
+                        请选择新的照片文件，文件需小于5MB<br />
+                        (你可以上传JPG、JPEG、GIF、PNG或BMP文件)
+                    </h2>
+                    <% form_for :user, :url => { :action => 'upload_icon' }, :html => { :multipart => true, :id => 'upload_form', :target => 'upload_frame' } do |f| -%>
+                        <%= hidden_field_tag 'update', 'avatar_view_box' %>
+                        <%= hidden_field_tag 'template', 'avatar_editor' %>
+                        <div class="ctrl-box-row">
+                            <span><%= f.file_field :avatar, :value => '' %></span>
+                        </div>
+                        <div class="ctrl-box-row">
+                            <span>
+                                <%= submit_tag '上传' %>
+                            </span>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe id='upload_frame' name="upload_frame" style="width: 1px; height: 1px; border: 0px" src="about:blank"></iframe>

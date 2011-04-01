@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= yield :title %></title>
+    <%= stylesheet_link_tag 'common' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ext-all' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ding00' %>
+    <%= stylesheet_link_tag 'messages' %>
+    <%= yield :stylesheet %>
+    <%= javascript_tag "var authenticity_token = '#{form_authenticity_token}';" %>
+    <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
+    <%= javascript_include_tag 'ext/ext-all' %>
+	<%= javascript_include_tag :defaults %>
+    <%= yield :javascript %>
+</head>
+<body onload="<%= yield :onload %>">
+    <%= show_logo_bar %>
+    <div class="messages-container">
+        <div class="h-dashed"></div>
+        
+        <div class="outer-frame">
+            <div class="controls">
+                <%= generate_tabs :tabs => [ 
+                                                {:title => '写站内信', :action => :new}, 
+                                                {:title => '收件箱', :action => :recv}, 
+                                                {:title => '发件箱', :action => :sent} 
+                                           ],
+                                  :link_class => 'ctrl-button',
+                                  :link_active_class => 'active'
+                %>
+            </div>
+            
+            <div class="inner-frame" id="msg_inner_frame">
+                <%= yield :layout %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

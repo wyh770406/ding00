@@ -1,0 +1,40 @@
+.calender-top-bar { height: 50px; overflow: hidden; border: 1px solid #ccc; border-bottom: none; }
+
+.calender-top-bar .datetime { padding: 0 185px 0 275px; }
+.calender-top-bar .datetime span { display: block; float: left; margin: 0 5px; }
+.calender-top-bar .datetime span.date-text { font-size: 24px; color: #666; font-family: 黑体; line-height: 50px; }
+.calender-top-bar .datetime a { margin-top: 9px; }
+
+.calender-top-bar .ctrls { float: right; padding: 0 10px; }
+.calender-top-bar .ctrls span { float: left; margin: 10px 0 10px 5px; }
+.calender-top-bar .ctrls a.nav { margin: 6px 0; }
+.calender-top-bar .ctrls a.disactive { width: 33px; height: 30px; line-height: 30px; text-align: center; color: #f60; }
+
+.calendar-table { width: 100%; border-collapse: collapse; border: 0px; }
+.calendar-table tr td { text-align: center; border: 1px solid #ccc; width: 110px; overflow: hidden; }
+
+.calendar-table tr.day-row { height: 50px; }
+.calendar-table tr.day-row span { display: block; font-family: 黑体; color: #666; }
+.calendar-table tr.day-row span.gregorian { font-size: 24px; }
+.calendar-table tr.day-row span.lunar { font-size: 10px; }
+
+.calendar-table tr.week-row { height: 40px; }
+.calendar-table tr.week-row span { font-family: 黑体; color: #666; }
+
+.calendar-table tr td.current_day { background-color: #f60; }
+.calendar-table tr td.current_day span { color: #fff; }
+
+.calendar-table tr.events-list td { height: 200px; width: 110px; vertical-align: top; }
+.calendar-table tr.events-list td ul { width: 111px; height: 100%; overflow: hidden; }
+.calendar-table tr.events-list td li.title { font-weight: bold; height: 44px; line-height: 22px; margin: 0 2px; overflow: hidden; word-break: break-all; }
+.calendar-table tr.events-list td li.time { font-size: 10px; color: #333; line-height: 16px; text-align: left; padding: 0 5px; }
+.calendar-table tr.events-list td li.address { font-size: 10px; color: #333; line-height: 12px; text-align: left; padding: 0 5px; height: 24px; }
+.calendar-table tr.events-list td li.image { margin: 10px auto auto auto; }
+.calendar-table tr.events-list td li.image img { max-width: 100px; max-height: 100px; }
+
+.events-list-overflow { padding: 3px; display: none; border: 1px solid #f60; }
+.events-list-overflow .overflow-top .overflow-top-left { float: left; }
+.events-list-overflow .overflow-top .overflow-top-right { float: right; }
+.events-list-overflow .overflow-top .info-box { width: 43px; height: 43px; border: 1px solid #ccc; background-color: #fff; padding: 4px 2px; }
+.events-list-overflow .overflow-top span { display: block; color: #000; margin-bottom: 10px; }
+.events-list-overflow .overflow-main { margin-top: 160px; }

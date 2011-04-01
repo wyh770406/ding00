@@ -1,0 +1,214 @@
+/*
+ Global setting
+*/
+div, ul, p, label { margin: 0; padding: 0; font-family: 微软雅黑,Microsoft YaHei,Helvetica,Tahoma,StSun,宋体,SimSun,sans-serif; font-size: 12px; }
+span { padding: 0; overflow: hidden; }
+body { margin: 0 auto !important; padding: 0 !important; width: 950px; overflow: normal; }
+a { text-decoration: none; color: #666; }
+a:hover { text-decoration: underline; color: #f60; }
+a:focus { outline: 0; }
+a img { border: none; }
+form { padding: 0; margin: 0; }
+
+ul { list-style: none; }
+ul li { line-height: 20px; }
+p { line-height: 20px; }
+input, label, select, button { vertical-align: middle; }
+
+/*
+ Font color
+*/
+.font-color-333 { color: #333; }
+.font-color-666 { color: #666; }
+.font-color-999 { color: #999; }
+.font-color-036 { color: #036; }
+.font-color-active { color: #f60; }
+.high-light { color: #f60; }
+
+/*
+ Font color
+*/
+.font-size-14 { font-size: 14px; }
+
+/*
+ Buttons
+*/
+.ctrl-button { cursor: pointer; display: inline-block; border-style: none; background: url('/images/controls.png') no-repeat 500px 500px; text-align: center; color: #fff; }
+.ctrl-button:hover { text-decoration: none; color: #fff; }
+
+.ctrl-button-orange { background: url('/images/controls/btn_orange_117x30.png') no-repeat center top; width: 117px; height: 30px; color: #fff; line-height: 30px; text-align: center; }
+.ctrl-button-orange:hover { background-position: center -30px; color: #fff; }
+
+.ctrl-button-cancel { background: url('/images/controls/cancel_93x30.png') no-repeat center top; width: 93px; height: 30px; color: #fff; line-height: 30px; text-align: center; }
+.ctrl-button-cancel:hover { background-position: center -30px; color: #fff; }
+
+.ctrl-button-save-26 { background: url('/images/controls/cancel_66x26.png') no-repeat center top; width: 66px; height: 26px; color: #fff; line-height: 26px; text-align: center; }
+.ctrl-button-save-26:hover { background-position: center -26px; color: #fff; }
+
+.ctrl-button-tab { background: url('/images/controls/tab_93x30.png') no-repeat center top; width: 93px; height: 30px; color: #999; line-height: 30px; text-align: center; }
+.ctrl-button-tab-active, .ctrl-button-tab:hover { background-position: center -30px; color: #999; }
+
+.ctrl-button-prev { background: url('/images/controls/prev_10x19.png') no-repeat center top; width: 10px; height: 19px; }
+.ctrl-button-prev:hover { background-position: center -19px; }
+
+.ctrl-button-next { background: url('/images/controls/next_10x19.png') no-repeat center top; width: 10px; height: 19px; }
+.ctrl-button-next:hover { background-position: center -19px; }
+
+.ctrl-button-33x30 { background: url('/images/controls/button_33x30.png') no-repeat center top; width: 33px; height: 30px; line-height: 30px; color: #fff; text-align: center; }
+.ctrl-button-33x30:hover { background-position: center -30px; color: #fff; }
+
+.ctrl-button-93x30 { background: url('/images/controls/button_93x30.png') no-repeat center top; width: 93px; height: 30px; line-height: 30px; color: #fff; text-align: center; }
+.ctrl-button-93x30:hover { background-position: center -30px; color: #fff; }
+
+.ctrl-button-filter { background: url('/images/controls/filter_76X26.png') no-repeat center top; width: 76px; height: 26px; line-height: 26px; color: #fff; text-align: center; }
+.ctrl-button-filter:hover { background-position: center -26px; color: #fff; }
+
+.ctrl-button-66x26 { background: url('/images/controls/button_66x26.png') no-repeat center top; width: 66px; height: 26px; line-height: 26px; color: #fff; text-align: center; }
+.ctrl-button-66x26:hover { background-position: center -26px; color: #fff; }
+
+.ctrl-button-41x17 { background: url('/images/controls/button_41x17.png') no-repeat center top; width: 41px; height: 17px; line-height: 17px; color: #fff; text-align: center; }
+.ctrl-button-41x17:hover { background-position: center -17px; color: #fff; }
+
+.ctrl-button-50x20 { background: url('/images/controls/button_50x20.png') no-repeat center top; width: 50px; height: 20px; line-height: 20px; color: #fff; text-align: center; }
+.ctrl-button-50x20:hover { background-position: center -20px; color: #fff; }
+
+.ctrl-button-102x30 { background: url('/images/controls/button_102x30.png') no-repeat center top; width: 102px; height: 30px; line-height: 30px; color: #fff; text-align: center; }
+.ctrl-button-102x30:hover { background-position: center -30px; color: #fff; }
+
+.ctrl-ok-42x16 { background-position: 0 0; width: 42px; height: 16px; color: #fff; line-height: 16px; }
+.ctrl-ok-42x16:hover { background-position: -42px 0px; }
+
+.ctrl-cancel-42x16 { background-position: -100px 0; width: 42px; height: 16px; color: #fff; line-height: 16px; }
+.ctrl-cancel-42x16:hover { background-position: -142px 0px; }
+
+.ctrl-ok-64x23 { background-position: -200px 0; width: 64px; height: 23px; color: #fff; line-height: 23px; }
+.ctrl-ok-64x23:hover { background-position: -264px 0px; }
+
+.ctrl-cancel-64x23 { background-position: -350px 0; width: 64px; height: 23px; color: #fff; line-height: 23px; }
+.ctrl-cancel-64x23:hover { background-position: -414px 0px; }
+
+/*
+ Icons
+*/
+.ctrl-icon { background: url('/images/icons.png') no-repeat 200px 200px; }
+
+.ctrl-icon-invitation-35x35 { background-position: 0px 0px; width: 35px; height: 35px; }
+.ctrl-icon-remind-35x35, .ctrl-icon-online-35x35 { background-position: -50px 0px; width: 35px; height: 35px; }
+.ctrl-icon-message-35x35 { background-position: -100px 0px; width: 35px; height: 35px; }
+.ctrl-icon-attention-35x35 { background-position: -150px 0px; width: 35px; height: 35px; }
+.ctrl-icon-offline-35x35 { background-position: -200px 0px; width: 35px; height: 35px; }
+
+.ctrl-icon-unread { background-position: 0px -50px; width: 16px; height: 16px; }
+.ctrl-icon-readed { background-position: -50px -50px; width: 16px; height: 16px; }
+.ctrl-icon-replied { background-position: -100px -50px; width: 16px; height: 16px; }
+
+/*
+ Global setting
+*/
+.dashed-line { background: transparent url("/images/backgrounds/line_48x1.png") 0 0 repeat-x; height: 1px; }
+
+.home-user-bar { text-align: right; font-size: 14px; line-height: 30px; position: relative; }
+.home-user-bar a.highlight { color: #f60; }
+.home-user-bar span { margin: auto 5px; }
+.home-user-bar span.sep { border-right: 1px solid #999; }
+.home-user-bar span.highlight { color: #f60; margin: 0; }
+
+.home-user-bar .user-tip-box { background-color: #ccc; padding: 2px 5px; position: absolute; top: 30px; right: 0px; }
+.home-user-bar .user-tip-box ul li { border: 1px solid #f60; height: 45px; width: 265px; background-color: #fff; margin: 4px 0; }
+.home-user-bar .user-tip-box div.item { float: left; }
+.home-user-bar .user-tip-box div.icon img { width: 35px; height: 35px; margin: 5px; }
+.home-user-bar .user-tip-box div.content { width: 138px; line-height: 45px; padding: 0 15px; text-align: left; }
+.home-user-bar .user-tip-box div.ctrls span { display: block; margin: 4px 0; }
+
+.home-logo-bar { padding: 0 0 10px 0; }
+.home-logo-bar img { border: none; }
+
+.clear { clear: both; }
+
+.flash-error { display: none; }
+.flash-error span { display: block; zoom: 1; border: 1px solid #f60; padding: 10px; background-color: #ececec; color: #333; }
+.body-box-ececec { background-color: #ececec; padding: 10px; }
+
+/*
+ User information box
+*/
+.home-user-info { border: 1px solid #ccc; height: 147px }
+.home-user-info ul.main-frame { padding: 10px; }
+.home-user-info ul.main-frame li { display: block; float: left; }
+.home-user-info .user-avatar img { border: 1px solid #ccc; padding: 5px; width: 115px; height: 115px; }
+
+.home-user-info .user-name { text-align: center; width: 100px; padding: 25px 0; margin: 5px 20px; }
+.home-user-info .user-name div { margin: 5px 0; }
+.home-user-info .user-name span { font-size: 24px; font-family: 黑体; color: #f60; line-height: 24px; }
+
+.home-user-info .user-attention { margin: 25px 0 20px 0; width: 100px; }
+.home-user-info .user-attention span { display: block; font-size: 14px; font-family: 黑体; margin: 5px 0; }
+.home-user-info .user-attention span a { color: #f60; }
+
+.home-user-info .user-edit-ctrl { padding-top: 20px; }
+.home-user-info .user-edit-ctrl ul li { float: none; margin-top: 5px; }
+.home-user-info .user-edit-ctrl ul li a { float: none; }
+
+.home-user-info .info-sep { background: url('/images/backgrounds/dashed_1x19.png') repeat-y center top; width: 1px; height: 125px; margin: 0 10px; }
+
+.home-user-info .user-events ul.user-events-list { width: 360px; }
+.home-user-info .user-events li { display: block; margin: 1px 0; width: 100%; }
+.home-user-info .user-events li a { color: #f60; }
+
+.home-user-info .user-events-more { padding-top: 110px; }
+.home-user-info .user-events-more a { font-size: 14px; color: #999; }
+
+/*
+ main frame tabs
+*/
+.home-tool-bar { overflow: hidden; }
+.home-tool-bar ul { padding-top: 35px; }
+.home-tool-bar ul li { display: block; float: left; }
+.home-tool-bar .sep-space { height: 30px; width: 5px; }
+.home-tool-bar .sep-search { height: 30px; width: 355px; }
+
+.home-tool-bar .search-bar { height: 30px; line-height: 30px; }
+.home-tool-bar .search-bar .search-ctrl { border: 1px solid #ccc; height: 24px; line-height: 24px; }
+.home-tool-bar .search-bar .search-ctrl .text { border-style: none; border: 0; height: 22px; line-height: 22px; width: 260px; color: #ccc; float: left; }
+.home-tool-bar .search-bar .search-ctrl a.dropdown { border-left: 1px solid #ccc; border-right: 1px solid #ccc; display: block; float: left; width: 16px; height: 24px; background: url('/images/backgrounds/dropdown_5x3.png') no-repeat center center; }
+.home-tool-bar .search-bar .search-ctrl a.magnifier { display: block; float: left; width: 24px; height: 24px; background: url('/images/backgrounds/magnifier_18x18.png') no-repeat center center; }
+
+/*
+ tip box
+*/
+.tip-box-container { display: none; }
+.tip-box-frame { width: 420px; height: 280px; border: 2px solid #ccc; margin: auto; }
+.tip-box-caption { font-size: 18px; color: #f60; line-height: 100px; }
+.tip-box-content ul { height: 100px; overflow: hidden; }
+.tip-box-content ul li { font-size: 14px; color: #666; }
+.tip-box-content ul li.tip-box-time { font-size: 12px; color: #999; margin-top: 10px; }
+
+/*
+ show city
+*/
+.showcity-container { border: 1px solid #fc3; background-color: #ffc; width: 450px; display: none; position: absolute; top: 35px; left: 0px; }
+.showcity-container .icon { position: absolute; width: 7px; height: 5px; top: 0px; left: 0px; vertical-align: top; margin: -5px 0 0 80px; background: url('/images/bgpic.png') no-repeat 0 0; }
+.showcity-container .prov-frame { padding: 15px; position: relative; }
+.showcity-container .city-frame { padding: 15px; position: relative; background-color: #fff; border-top: 1px solid #fc3; display: none; }
+.showcity-container .ctrls-frame { padding: 5px 15px; text-align: right; border-top: 1px solid #fc3; }
+.showcity-container .prov { font-size: 12px; color: #333; width: 45px; line-height: 24px; display: block; text-align: center; }
+.showcity-container .city { font-size: 12px; color: #333; margin: 0 5px; line-height: 24px; text-align: center; word-break: break-all; }
+
+/*
+ attention cancel
+*/
+.attention-cancel { display: inline-block; cursor: default; background-color: #999; width: 117px; height: 30px; line-height: 30px; }
+.attention-cancel span { display: block; float: left; text-align: center; color: #fff; overflow: visible; }
+.attention-cancel span.already { width: 65px; }
+.attention-cancel span.sep { width: 2px; background-color: #fff; margin: 5px 0; line-height: 20px; }
+.attention-cancel span.cancel { width: 45px; position: relative; }
+.attention-cancel span.cancel a { color: #fff; }
+.attention-cancel div.cancel-tip { display: none; position: absolute; top: -70px; left: -15px; width: 224px; height: 80px; background: url('/images/bgpic.png') no-repeat 0 -50px; }
+.attention-cancel div.cancel-tip p { margin: 22px 20px; padding: 0; text-align: left; color: #f60; line-height: normal; }
+
+/*
+ * confirm box
+ */
+.confirm-frame { border: 2px solid #ccc; padding: 15px; width: 200px; text-align: center; background-color: #fff; z-index: 100; }
+.confirm-frame p { margin-bottom: 15px; }
+.confirm-frame span.ctrl { display: inline; }

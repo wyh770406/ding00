@@ -1,0 +1,21 @@
+<%
+    tool_bar_class = 'ctrl-button ctrl-button-tab'
+    tool_bar_active_class = tool_bar_class + ' ctrl-button-tab-active'
+%>
+
+<div class="home-tool-bar">
+    <ul>
+        <li><%= link_to '首页', { :controller => :home, :action => :index }, :class => current_page?(:controller => 'home', :action => action_name)? tool_bar_active_class : tool_bar_class %></li>
+        <li class="sep-space">&nbsp</li>
+        <li><%= link_to '关注', mine_attentions_url, :class => current_page?(:controller => 'attentions', :action => action_name)? tool_bar_active_class : tool_bar_class %></li>
+        <li class="sep-space"></li>
+        <li><%= link_to '总有一天', 'javascript:void(0)', :class => current_page?(:controller => 'oneday', :action => action_name)? tool_bar_active_class : tool_bar_class %></li>
+        <li class="sep-search"></li>
+        <li class="search-bar">
+            <div class="search-ctrl">
+                <%= text_field_tag '', '搜索你感兴趣的人和事', :class => 'text' %>
+                <span><%= link_to '', 'javascript:void(0)', :class => 'dropdown' %></span><span><%= link_to ' ', 'javascript:void(0)', :class => 'magnifier' %></span>
+            </div>
+        </li>
+    </ul>
+</div>

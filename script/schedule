@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'daemons'
+
+# Load our Rails environment.
+require File.join('config', 'environment')
+require 'app/controllers/croneventmail_controller.rb'
+APP_DIR = File.join(File.dirname(File.expand_path(__FILE__)), '..')
+
+Daemons.run_proc(
+  'schedule',
+  :dir_mode => :normal, 
+  :dir => File.join(APP_DIR, 'log'),
+  :multiple => false,
+  :backtrace => true,
+  :monitor => true,
+  :log_output => true
+) do
+
+  # Daemonising changes the pwd to /, so we need to switch 
+  # back to RAILS_ROOT.
+  Dir.chdir(APP_DIR)
+
+
+
+  begin
+
+    require 'rufus/scheduler'
+    scheduler = Rufus::Scheduler.start_new
+
+    $scheduletask = CroneventmailController.new
+
+    
+    scheduler.every '1m' do
+      $scheduletask.send_event_mail
+                 
+    end
+
+    # Tell the scheduler to perform these jobs until the 
+    # process is stopped.
+    scheduler.join
+  rescue => e
+    RAILS_DEFAULT_LOGGER.warn "Exception in schedule: #{e.inspect}"
+    exit
+  end
+end

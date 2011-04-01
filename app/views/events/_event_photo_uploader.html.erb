@@ -1,0 +1,8 @@
+  <% prefix = "event[eventPhotos_attributes][]" %>
+  <%fields_for prefix,event_photo_uploader do |builder|   %>
+       <div class="detail-row">
+         <div style="margin-left:114px;"><%= builder.file_field :photo %>
+
+         <%= link_to_function "移除", "$(this).parent().remove();" %></div>
+        </div>
+   <% end -%> 

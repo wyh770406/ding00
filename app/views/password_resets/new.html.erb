@@ -1,0 +1,15 @@
+<%= pagetitle '忘记密码' %>
+<div class="user-details-show">
+  <h1><%= %Q{忘记密码} %></h1>
+  <div class="base-frame info">
+    <div><font color="red"><%if !flash[:notice].nil?%><%=flash[:notice]%><%end%></font></div>
+    <% form_for :user, :url => password_resets_path do |form| %>
+    <div >
+      <ul>
+        <li> 请输入你的邮件名称:<%= form.text_field :email, :maxlength => 40 %></li>
+      </ul>
+    </div>
+    <%= submit_tag "重置你的密码" %>
+    <%end%>
+  </div>
+</div>

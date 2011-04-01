@@ -1,0 +1,63 @@
+<% pagetitle '首页' %>
+<% add_stylesheet('sessions') %>
+
+<div class="sessions-container">
+    <div class="sessions-top-bar">
+        <span><%= link_to '给我们提意见', 'javascript:void(0)', :title => '' %></span>
+        <span><%= link_to '添加到收藏夹', 'javascript:void(0)', :title => '' %></span>
+    </div>
+    
+    <div class="sessions-top-logo">
+        <span><%= image_tag 'home/home_logo_286x116.png', :title => '叮呤呤' %></span>
+        <span class="title"><%= image_tag 'home/home_logoname_278x32.png', :title => '轻松管理 分享快乐' %></span>
+    </div>
+    
+    <div class="sessions-top-desc">
+        <div class="desc">
+            <div class="title font-color-666">叮呤呤</div>
+            <div class="content font-color-999">
+                <p>轻松管理自己的日程。使用叮呤呤，您可从一个地方轻松掌控生活中的各种重要事项如生日、聚会、棒球赛、医生预约等等。</p>
+                <p>您可以轻松添加活动和邀请，与亲朋好友共享，在网络上搜索自己感兴趣的活动。管理各种事项和活动，简单又方便。</p>
+            </div>
+        </div>
+        <div class="news font-color-999">
+            <div class="title">我们每天都在地进步着：</div>
+            <ul class="content">
+                <li>11月8日 记录：改进了在机构主页中记录动态的显示</li>
+                <li>11月5日 记录：修复了最喜欢图片的选择算法</li>
+                <li>11月4日 记录：修复了回复过多时偶尔丢失评论的问题</li>
+            </ul>
+        </div>
+    </div>
+
+    <iframe name="nonupdate_iframe" style="display: none; position: absolute; z-index: 1;" src="javascript:void(0)"></iframe>
+    
+    <div class="sessions-login-frame font-color-999">
+        <div class="tip-box">
+            <div class="flash-error" id="flash_error_box">
+                <span></span>
+            </div>
+        </div>
+        <% form_tag session_path, :target => 'nonupdate_iframe' do %>
+            <%= hidden_field_tag 'errors', 'flash_error_box' %>
+            <ul>
+                <li class="font-size-14"><%= label_tag 'email', '邮箱：' %></li>
+                <li><%= text_field_tag 'email', @email, :class => 'text' %></li>
+                <li class="font-size-14"><%= label_tag 'password', '密码：' %></li>
+                <li><%= password_field_tag 'password', '', :class => 'text' %></li>
+                <li><%= check_box_tag 'remember_me', @remember_me %>&nbsp<%= label_tag 'remember_me', '记住登录状态' %></li>
+                <li class="login">
+                    <%= submit_tag '登录', :title => '登录', :class => 'ctrl-button ctrl-button-orange' %>
+                    <div class="forgetpwd">
+                        <span><%= link_to '忘记密码？', forgotpass_url %></span>
+                    </div>
+                </li>
+                <li><%= link_to '注册', :signup, :title => '注册', :class => 'ctrl-button ctrl-button-orange' %></li>
+            </ul>
+        <% end %>
+    </div>
+    
+    <div class="sessions-footer-container">
+    
+    </div>
+</div>

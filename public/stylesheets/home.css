@@ -1,0 +1,36 @@
+.home-events-container { background-color: #ececec; padding: 10px; overflow: hidden; }
+.home-events-container .events-left-frame { float: left; width: 790px; }
+.home-events-container .events-right-frame { margin-left: 800px; width: 130px; padding-top: 30px; }
+
+.home-events-container .events-tabs { text-align: center; padding-left: 270px; height: 30px; font-family: 黑体; position: relative; }
+.home-events-container .events-tabs span { display: block; position: absolute; float: left; margin: 0 2px; height: 29px; width: 115px; border: 1px solid #ccc; border-bottom: 0; }
+.home-events-container .events-tabs span.time { left: 275px; }
+.home-events-container .events-tabs span.list { left: 400px; }
+.home-events-container .events-tabs span.active-tab { height: 31px; z-index: 10; }
+.home-events-container .events-tabs span.active-tab a { color: #f60; }
+.home-events-container .events-tabs a { display: block; height: 35px; line-height: 30px; width: 100%; font-size: 14px; background-color: #fff; text-decoration: none; }
+
+.home-events-container .calendar-frame { border: 1px solid #ececec; background-color: #fff; overflow: hidden; }
+
+.events-left-frame .right-frame-sep { height: 10px; }
+
+.events-left-frame .news-frame { border: 1px solid #ccc; background-color: #fff; padding: 15px; }
+.events-left-frame .news-frame label { display: block; font-size: 14px; font-family: 黑体; color: #666; line-height: 16px; }
+.events-left-frame .news-frame ul { margin-top: 16px; }
+.events-left-frame .news-frame ul li { line-height: 24px; }
+.events-left-frame .news-frame ul li a { color: #f60; }
+
+.events-right-frame .right-frame-sep { height: 10px; }
+
+.events-right-frame .right-sub-frame { border: 1px solid #ccc; background-color: #fff; }
+.events-right-frame .right-sub-frame label { display: block; height: 50px; text-align: center; line-height: 50px; font-size: 14px; font-family: 黑体; color: #f60; border-bottom: 1px solid #ccc; }
+.events-right-frame .right-sub-frame img.user-avatar { width: 60px; height: 60px; vertical-align: middle; }
+
+.events-right-frame .right-sub-frame ul.user-list { height: 360px; }
+.events-right-frame .right-sub-frame ul.user-list li { height: 60px; line-height: 60px; margin: 10px; }
+.events-right-frame .right-sub-frame ul.user-list li span.avatar-name { padding: 0 5px; }
+
+.events-right-frame .right-sub-frame ul.one-day-events li.event-content { line-height: 20px; padding: 5px; height: 40px; border-bottom: 1px solid #ccc; }
+.events-right-frame .right-sub-frame ul.one-day-events li.more-events { text-align: right; height: 35px; line-height: 35px; }
+.events-right-frame .right-sub-frame ul.one-day-events li a { color: #999; }
+.events-right-frame .right-sub-frame ul.one-day-events li a:hover { color: #f60; }

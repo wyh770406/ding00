@@ -1,0 +1,22 @@
+.friend-selector-frame { background-color: #fff; padding: 20px; line-height: normal; height: 424px; overflow: hidden; }
+
+.friend-selector-frame .ctrls-box { overflow: hidden; }
+.friend-selector-frame .ctrls-box span { line-height: normal; }
+.friend-selector-frame .ctrls-box .ctrls-box-left { float: left; width: 50%; }
+.friend-selector-frame .ctrls-box .ctrls-box-right { margin-left: 50%; text-align: right; }
+.friend-selector-frame .ctrls-box .ctrls-box-right ul li { display: inline; zoom: 1; }
+.friend-selector-frame .ctrls-box .ctrls-box-right a.disactive { width: 66px; height: 26px; line-height: 26px; text-align: center; color: #f60; }
+
+.friends-box { border: 1px solid #ccc; background-color: #fff; height: 350px; margin: 10px 0; overflow-y: scroll; }
+
+.friends-box ul { margin: 10px; overflow: hidden; }
+.friends-box ul li { float: left; width: 138px; margin: 0 1px 10px 0; border: 1px solid #fff; cursor: pointer; }
+.friends-box ul li:hover { border: 1px solid #f60; background-color: #ececec; }
+.friends-box ul li.selected { border: 1px solid #f60; background-color: #f96; }
+.friends-box ul li img { width: 50px; height: 50px; padding: 2px; border: 1px solid #ccc; vertical-align: top; background-color: #fff; }
+.friends-box ul li span.user-name { display: inline-block; padding: 2px 5px; color: #666; }
+.friends-box ul li span.selected { color: #fff; }
+
+.friends-box ul.all-friends { display: block; }
+.friends-box ul.selected-friends { display: none; }
+.friends-box ul.unselected-friends { display: none; }

@@ -1,0 +1,102 @@
+<% pagetitle '用户注册' %>
+
+<% add_javascript( 'controls/jquery.showcity' ) %>
+<% add_javascript('users.new') %>
+
+<% @user.password = @user.password_confirmation = nil %>
+
+<div class="register-container">
+    <div class="register-tip">
+        <span class="font-color-666">欢迎加入叮呤呤</span>
+    </div>
+    
+    <% form_for @user, :url => users_path, :html => { :id => 'user_form' } do |f| %>
+        <div class="regitster-form font-color-666">
+            <ul class="field-row">
+                <li><%= label_tag 'email', '邮箱', :class => 'caption' %></li>
+                <li>
+                    <%= f.text_field :email, 
+                        :onblur => remote_function( :url => { :action => :validate_field }, 
+                            :with => "'field=email;value=' + this.value",
+                            :failure => 'on_failure($(\'#email_tip_box\'), request.responseText)',
+                            :success => 'on_success($(\'#email_tip_box\'))',
+                            :before => 'on_spinner($(\'#email_tip_box\'))'
+                        ),
+                        :class => 'text' %>
+                &nbsp</li>
+                <li id="email_tip_box">
+                    <span class="tip-box"></span>
+                    <%= image_tag  'rigth_26x26.png', :title => '' %>&nbsp
+                </li>
+            </ul>
+            <ul class="field-row">
+                <li><%= label_tag 'name', '姓名', :class => 'caption' %></li>
+                <li>
+                    <%= f.text_field :name, 
+                        :onblur => remote_function( :url => { :action => :validate_field }, 
+                            :with => "'field=name;value=' + this.value",
+                            :before => 'on_spinner($(\'#name_tip_box\'))',
+                            :failure => 'on_failure($(\'#name_tip_box\'), request.responseText)',
+                            :success => 'on_success($(\'#name_tip_box\'))'
+                        ),
+                        :class => 'text' %>
+                &nbsp</li>
+                <li id="name_tip_box">
+                    <span class="tip-box"></span>
+                    <%= image_tag  'rigth_26x26.png', :title => '' %>&nbsp
+                </li>
+            </ul>
+            <ul class="field-row">
+                <li><%= label_tag 'password', '密码', :class => 'caption' %></li>
+                <li>
+                    <%= f.password_field :password, 
+                        :onblur => remote_function( :url => { :action => :validate_field }, 
+                            :with => "'field=password;value=' + this.value",
+                            :before => 'on_spinner($(\'#password_tip_box\'))',
+                            :failure => 'on_failure($(\'#password_tip_box\'), request.responseText)',
+                            :success => 'on_success($(\'#password_tip_box\'))'
+                        ),
+                        :class => 'text' %>
+                &nbsp</li>
+                <li id="password_tip_box">
+                    <span class="tip-box"></span>
+                    <%= image_tag  'rigth_26x26.png', :title => '' %>&nbsp
+                </li>
+            </ul>
+            <ul class="field-row">
+                <li><%= label_tag 'password_confirm', '密码确认', :class => 'caption' %></li>
+                <li>
+                    <%= f.password_field :password_confirmation, 
+                        :onblur => remote_function( :url => { :action => :validate_password_confirmation }, 
+                            :with => "'pwd=' + $('#user_password').val() + ';pwd_confirmation=' + this.value",
+                            :before => 'on_spinner($(\'#password_confirmation_tip_box\'))',
+                            :failure => 'on_failure($(\'#password_confirmation_tip_box\'), request.responseText)',
+                            :success => 'on_success($(\'#password_confirmation_tip_box\'))'
+                        ),
+                        :class => 'text' %>
+                    &nbsp</li>
+                <li id="password_confirmation_tip_box">
+                    <span class="tip-box"></span>
+                    <%= image_tag  'rigth_26x26.png', :title => '' %>&nbsp
+                </li>
+            </ul>
+            <div class="field-row" style="position: relative;">
+                <%= label_tag '', '常居地', :class => 'caption' %>
+                <span class="font-color-999">叮呤吟猜你在</span><span class="font-color-active" id="location_span"><%= image_tag 'loading.gif', :title => '' %></span><span class="font-color-999">，没猜对？</span>
+                <span><%= link_to '手动选择', 'javascript:void(0)', :id => 'manual_search' %></span>
+                <div id="show_address_div" class="showcity-container"></div>
+                <% f.fields_for :userdetail_attributes do |detail| -%>
+                    <%= detail.hidden_field :now_country %>
+                    <%= detail.hidden_field :now_province %>
+                    <%= detail.hidden_field :now_city %>
+                <% end -%>
+           </div>
+            <div class="field-row">
+                <%= check_box_tag 'agreement', '' %><%= label_tag 'agreement', '我已经认真阅读并同意叮呤吟的《使用协议》。' %>
+            </div>
+            <div class="button-row">
+                <%= submit_tag '注册', :class => 'ctrl-button ctrl-button-orange', :type => 'button', :onclick => 'on_submit($(\'#user_form\'));return false;' %>
+            </div>
+        </div>
+    <% end %>
+</div>

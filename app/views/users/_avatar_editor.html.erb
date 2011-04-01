@@ -1,0 +1,15 @@
+<h1>栽切头像照片</h1>
+<h2>您可以拖动照片以栽剪满意的头像</h2>
+<div id="avatar_editor">
+</div>
+<div class="avatar-editor-ctrl">
+    <span>
+        <%= link_to '保存', 'javascript:void(0)', :id => 'save_avatar', :class => 'ctrl-button ctrl-button-save-26', :url => url_for( :action => :photoeditor ) %>
+    </span>
+    <span>
+        <%= link_to_remote '取消', 
+            :url => { :action => :cancel_edit_avatar }, 
+            :html => { :class => 'ctrl-button ctrl-button-save-26' } 
+        %>
+    </span>
+</div>

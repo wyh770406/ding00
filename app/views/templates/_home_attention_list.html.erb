@@ -1,0 +1,8 @@
+<%= label_tag '', '相互关注' %>
+<ul class="user-list">
+    <% 5.times do |i| -%>
+        <% if i < attentions.length -%>
+            <li><%= link_to (image_tag attentions[i].user.avatar_url, :title => '', :class => 'user-avatar'), { :controller => :home, :action => :friend, :id => attentions[i].user.id } %><span class="avatar-name"><%= link_to attentions[i].user.name, { :controller => :home, :action => :friend, :id => attentions[i].user.id } %></span></li>
+        <% end -%>
+    <% end -%>
+</ul>

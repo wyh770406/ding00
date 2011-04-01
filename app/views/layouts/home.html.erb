@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= yield :title %></title>
+    
+    <%= stylesheet_link_tag 'common' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ext-all' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ding00' %>
+    <%= yield :stylesheet %>
+    <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
+    <%= javascript_include_tag 'ext/ext-all' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'jquery.blockUI' %>
+    <%= javascript_tag "var authenticity_token = '#{form_authenticity_token}';" %>
+    <%= yield :javascript %>
+    
+</head>
+<body onload="<%= yield :onload %>">
+    <%= show_logo_bar %>
+    <%= show_user_info( @user ) %>
+    <%= show_main_frame %>
+    <%= yield :layout %>
+    <div id="tip_box" class="tip-box-container"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<div class="msg-controls">
+    <div class="item caption"><%= check_box_tag 'select_all', '' %><%= label_tag 'select_all', '全选' %>&nbsp</div>
+    <div class="item">
+        <%= link_to '删除', 'javascript:void(0)', :delurl => destroy_all_messages_url(:update => 'msg_inner_frame', :template => 'recv'),
+            :onclick => "update_del_ids(this);create_confirm_frame(this, {classname : 'confirm-frame', content : '确定要选中的邮件吗？', target : 'nonupdate_iframe'}); return false;", :class => 'ctrl-button ctrl-button-cancel' %>&nbsp
+    </div>
+    <div class="item">        
+        <%= link_to '清空', empty_recv_box_messages_url(:update => 'msg_inner_frame'), 
+            :onclick => "create_confirm_frame(this, {classname : 'confirm-frame', content : '确定要清空收件箱吗？', target : 'nonupdate_iframe'}); return false;", :class => 'ctrl-button ctrl-button-cancel' %>&nbsp
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="msg-lists">
+    <ul>
+        <% 10.times do |i| -%>
+        <li messageid="<%= (messages.nil? or messages[i].nil?)? -1 : messages[i].id %>">
+            <% if !messages.nil? && i < messages.length -%>
+            <% msg = messages[i] %>
+            <div class="caption">
+                <%= check_box_tag "msg_#{msg.id.to_s}", msg.id %>&nbsp
+                <% if msg.is_replied_recv? -%>
+                    <%= image_tag 'bg.png', :title => '已回复', :class => 'ctrl-icon ctrl-icon-replied' %>    
+                <% elsif msg.is_readed_recv? -%>
+                    <%= image_tag 'bg.png', :title => '已读', :class => 'ctrl-icon ctrl-icon-readed' %>    
+                <% else -%>
+                    <%= image_tag 'bg.png', :title => '未读', :class => 'ctrl-icon ctrl-icon-unread' %>
+                <% end -%>
+            </div>
+            <% if i == messages.length - 1 -%>
+            <div class="msg-frame last-frame">
+            <% else -%>
+            <div class="msg-frame">
+            <% end -%>
+                <div class="item"><%= image_tag msg.sender.avatar_url, :title => '' %></div>
+                
+                <div class="item user-info">
+                    <div class="user-name"><span><%= link_to msg.sender.name, { :controller => :home, :action => :friend, :id => msg.sender.id } %></span><span><%= msg.sender.sex_text %></span></div>
+                    <div class="address"><span><%= msg.sender.userdetail.nil?? '' : msg.sender.userdetail.now_address %></span></div>
+                </div>
+                
+                <div class="item content">
+                    <span <%= "class='unread'" unless msg.is_readed_recv? %>><%= link_to_function msg.title, update_partial(:url => reply_messages_url(:id => msg.id, :update => 'msg_inner_frame')), :href => 'javascript:void(0)' %></span>
+                    <span class=""><%= link_to_function truncate(msg.content, :length => 30), update_partial(:url => reply_messages_url(:id => msg.id, :update => 'msg_inner_frame')), :href => 'javascript:void(0)' %></span>
+                </div>
+                
+                <div class="item datetime">
+                    <span><%= msg.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+                </div>
+                
+                <div class="item operations">
+                    <span>&nbsp<%= link_to image_tag('bg.png', :title => '删除'), message_url( :id => msg.id, :update => 'msg_inner_frame', :template => 'recv' ), 
+                        :onclick => "create_confirm_frame(this, {classname : 'confirm-frame', content : '确定要删除消息吗？', target : 'nonupdate_iframe', method : 'DELETE'}); return false;", :class => 'close' %></span>
+                </div>
+            </div>
+            <% end -%>
+        </li>
+        <% end -%>
+    </ul>
+</div>
+
+<%= will_paginate messages, :params => {:action => :recv},  :class => 'msg-pages',:previous_label => '上一页', :next_label => '下一页' %>
+
+<iframe name="nonupdate_iframe" style="display: none; position: absolute; z-index: 1;" src="javascript:void(0)"></iframe>

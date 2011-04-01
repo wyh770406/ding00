@@ -1,0 +1,12 @@
+<ul>
+  <%for attending_user in attending_users%>
+    <li>
+      <p><%= link_to (image_tag attending_user.avatar_url, :size => '50x50'), { :controller => :home, :action => :friend, :id => attending_user.id }, :title => attending_user.name %>
+        </p>
+      <p><%= link_to attending_user.name, { :controller => :home, :action => :friend, :id => attending_user.id } %></p>
+    </li>
+  <%end%>
+
+
+</ul>
+

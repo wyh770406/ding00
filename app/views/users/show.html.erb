@@ -1,0 +1,38 @@
+<%= pagetitle '用户详细资料' %>
+
+<div class="user-details-show">
+    <h1><%= %Q{#{@user.name}的详细资料} %></h1>
+
+    <div class="base-frame avatar">
+        <div class="container"><%= image_tag @user.avatar_url, :title => '' %></div>
+    </div>
+    
+    <div class="base-frame info">
+        <div class="container">
+            <ul>
+                <li><%= label_tag '', '名字' %><span class="user-name"><%= @user.name %></span></li>
+                <li><%= label_tag '', '性别' %><span><%= @user.sex_text %></span></li>
+                <li><%= label_tag '', '生日' %><span><%= @user.birthday_text %></span></li>
+                <li><%= label_tag '', '所在地' %><span><%= @user.userdetail.now_address %></span></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="base-frame info">
+        <div class="container">
+            <ul>
+                <li><%= label_tag '', '邮箱' %><span><%= @user.email %></span></li>
+                <li><%= label_tag '', '手机' %><span><%= @user.userdetail.mobile %>&nbsp</span></li>
+                <li><%= label_tag '', '备注' %><span class="mark-text"><%= text_area_tag '', @user.userdetail.remark, :readonly => true %>&nbsp</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="ctrls">
+        <%= link_to '他的首页', { :controller => :home, :action => :friend, :id => @user.id }, :class => 'ctrl-button ctrl-button-orange' %>
+        <% if !@current_user.eql?(@user) -%>
+            <%= generate_attention_control :current_user => @current_user, :user => @user %>
+        <% end %>
+    </div>
+    <div class="clear"></div>
+</div>

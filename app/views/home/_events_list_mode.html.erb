@@ -1,0 +1,118 @@
+<%= javascript_tag '$(function() { init_events_list(); });' %>
+
+<div class="calender-top-bar">
+    <div class="datetime">
+        <span class="date-text"><%= @calendar.today.strftime( '%Y年%m月%d日' ) %></span>
+        <span>
+            <% if @calendar.is_week? -%>
+                <%= link_to_remote '本周', :url => { :action => :to_current_day }, :update => 'calendar_frame', :html => { :class => 'ctrl-button ctrl-button-33x30' } %>
+            <% elsif @calendar.is_day? -%>
+                <%= link_to_remote '今天', :url => { :action => :to_current_day }, :update => 'calendar_frame', :html => { :class => 'ctrl-button ctrl-button-33x30' } %>
+            <% end -%>
+        </span>
+    </div>
+    <div class="ctrls">
+        <span><%= link_to_remote '', :url => { :action => :prev }, :update => 'calendar_frame', :html => { :class => 'ctrl-button ctrl-button-prev nav' } %></span>
+        <span>
+            <% if @calendar.is_week? -%>
+                <%= link_to '周', 'javascript:void(0)', :title => '显示周列表', :class => 'ctrl-button ctrl-button-33x30 block' %>
+            <% elsif @calendar.is_day? -%>
+                <%= link_to_remote '周', :url => { :action => :set_calendar_type, :type => 'week' }, :update => 'calendar_frame', :html => { :title => '显示周列表', :class => 'ctrl-button disactive block' } %>
+            <% end -%>
+        </span>
+        <span>
+            <% if @calendar.is_day? -%>
+                <%= link_to '日', 'javascript:void(0)', :title => '显示日列表', :class => 'ctrl-button ctrl-button-33x30 block' %>
+            <% elsif @calendar.is_week? -%>
+                <%= link_to_remote '日', :url => { :action => :set_calendar_type, :type => 'day' }, :update => 'calendar_frame', :html => { :title => '显示日列表', :class => 'ctrl-button disactive block' } %>
+            <% end -%>
+        </span>
+        <span><%= link_to_remote '', :url => { :action => :next }, :update => 'calendar_frame', :html => { :class => 'ctrl-button ctrl-button-next nav' } %></span>
+    </div>
+</div>
+<div>
+    <table class="calendar-table" cellspacing="0" cellpadding="0">
+        <% if @calendar.is_week? -%>
+            <tr class="day-row">
+                <% (0..6).each do |i| -%>
+                    <% if @calendar.is_today?(@calendar.offset_day i) -%>
+                        <td class="current_day"><span class="gregorian"><%= (@calendar.offset_day i).day %></span><span class="lunar"><%= @calendar.offset_lunar i %></span></td>
+                    <% else -%>
+                        <td><span class="gregorian"><%= (@calendar.offset_day i).day %></span><span class="lunar"><%= @calendar.offset_lunar i %></span></td>
+                    <% end -%>
+                <% end -%>
+            </tr>
+            <tr class="week-row">
+                <% (0..6).each do |i| -%>
+                    <% if @calendar.is_today?(@calendar.offset_day i) -%>
+                        <td class="current_day"><span><%= @calendar.name_of_week( i + 1 ) %>(今天)</span></td>
+                    <% else -%>
+                        <td><span><%= @calendar.name_of_week( i + 1 ) %></span></td>
+                    <% end -%>
+                <% end -%>
+            </tr>
+        <% elsif @calendar.is_day? -%>
+            <% if @calendar.is_today?(@calendar.current_day) -%>
+                <tr class="day-row">
+                    <td colspan="7" class="current_day"><span class="gregorian"><%= (@calendar.current_day).day %>(今天)</span><span class="lunar"><%= @calendar.offset_lunar %></span></td>
+                </tr>
+                <tr class="week-row">
+                    <td colspan="7" class="current_day"><span><%= @calendar.current_week_name %></span></td>
+                </tr>
+            <% else -%>
+                <tr class="day-row">
+                    <td colspan="7"><span class="gregorian"><%= (@calendar.current_day).day %></span><span class="lunar"><%= @calendar.offset_lunar %></span></td>
+                </tr>
+                <tr class="week-row">
+                    <td colspan="7"><span><%= @calendar.current_week_name %></span></td>
+                </tr>
+            <% end -%>
+        <% end -%>
+        <% events_list = Array.new(@calendar.rows){ Array.new(@calendar.cols) } if events_list.nil? %>
+        <% events_list.each do |row| events_list.nil? -%>
+            <tr class="events-list">
+                <% row.each do |event| -%>
+                    <td>
+                        <% if !event.nil? -%>
+                            <ul>
+                                <%= hidden_field_tag '', event.self_creator?(@current_user), :class => 'event-can-favorite' %>
+                                <%= hidden_field_tag '', event.self_creator?(@current_user), :class => 'event-can-attending' %>
+                                <%= hidden_field_tag '', event_path(event.id), :class => 'event-item-href' %>
+                                <%= hidden_field_tag '', '/events/add_to_favorite/'+event.id.to_s, :class => 'event-item-addfavhref' %>
+                                <%= hidden_field_tag '', '/events/attending_to_event/'+event.id.to_s, :class => 'event-item-attendeventhref' %>
+
+                                <%= hidden_field_tag '', event.favorite_count, :class => 'event-item-favorites' %>
+                                <%= hidden_field_tag '', event.attending_count, :class => 'event-item-attendings' %>
+                              
+                                <li class="title"><span><%= event.title %></span></li>
+                                <li class="time"><span>时间：</span><span><%= event.begin_time %>-<%= event.end_time %></span></li>
+                                <li class="address"><span>地点：</span><span><%= event.address %></span></li>
+                                <li class="image"><%= image_tag event.cover_url, :title => '' %></li>
+                            </ul>
+                        <% end -%>
+                    </td>
+                <% end -%>
+            </tr>
+        <% end -%>
+    </table>
+</div>
+
+<div class="events-list-overflow">
+    <div class="overflow-top">
+        <div class="overflow-top-left info-box">
+            <span>
+             <a href="#" class="ctrl-button ctrl-button-41x17">收藏</a>
+
+            </span>
+            <span>0</span>
+        </div>
+        <div class="overflow-top-right info-box">
+            <span><%= link_to '参与', 'javascript:void(0)', :class => 'ctrl-button ctrl-button-41x17' %></span>
+            <span>0</span>
+        </div>
+    </div>
+    
+    <div class="overflow-main">
+        <span><%= link_to '详细资料', 'javascript:void(0)', :class => 'ctrl-button ctrl-button-102x30' %></span>
+    </div>
+</div>

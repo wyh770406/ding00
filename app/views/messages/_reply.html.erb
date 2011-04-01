@@ -1,0 +1,44 @@
+<div class="flash-error" id="flash_error_box">
+    <span></span>
+</div>
+
+<iframe name="nonupdate_iframe" style="display: none; position: absolute; z-index: 1;" src="javascript:void(0)"></iframe>
+
+<% form_for @reply, :url => messages_path, :html => { :target => 'nonupdate_iframe' } do |f| -%>
+<%= hidden_field_tag 'replyto', message.id %>
+<%= hidden_field_tag 'errors', 'flash_error_box' %>
+<%= hidden_field_tag 'update', 'msg_inner_frame' %>
+<%= hidden_field_tag 'message[title]', '回复：' + message.title %>
+<%= hidden_field_tag 'message[recv_id]', message.send_id %>
+<%= f.hidden_field :send_id %>
+<div class="msg-reply-receive">
+    <div class="receive-user-info">
+        <div class="column">
+            <span><%= link_to image_tag(message.sender.avatar_url, :title => '', :class => 'user-avatar'), { :controller => :home, :action => :friend, :id => message.sender.id } %></span>
+        </div>
+        <div class="column user-info">
+            <div class="user-name"><span><%= link_to message.sender.name, { :controller => :home, :action => :friend, :id => message.sender.id } %></span><span><%= message.sender.sex_text %></span></div>
+            <div class="address"><span><%= message.sender.userdetail.nil?? '' : message.sender.userdetail.now_address %></span></div>
+        </div>
+        <div class="column datetime">
+            <span><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </div>
+    </div>
+    <div class="receive-content">
+        <p class="title"><%= message.title %></p>
+        <p class="content"><%= message.content %></p>
+    </div>
+</div>
+
+<div class="msg-reply-reply">
+    <div class="caption"><span>回复</span></div>
+    <div class="reply-content">
+        <%= f.text_area :content %>
+    </div>
+</div>
+
+<div class="msg-reply-ctrls">
+    <span><%= submit_tag '发送', :class => 'ctrl-button ctrl-button-93x30' %></span>
+    <span><%= link_to_function '返回收件箱', update_partial(:url => backrecv_messages_url(:update => 'msg_inner_frame')), :href => 'javascript:void(0)', :class => 'ctrl-button ctrl-button-cancel' %></span>
+</div>
+<% end -%>

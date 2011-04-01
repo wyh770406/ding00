@@ -1,0 +1,114 @@
+
+.edit-detail-frame { padding: 20px; background-color: #ececec; color: #666; border: 1px solid #ccc; }
+.edit-detail-frame h1 { font: normal 16px 黑体; }
+
+.edit-detail-frame img { vertical-align: middle; }
+.edit-detail-frame table tr.top-space { height: 24px; }
+.edit-detail-frame table tr.field-set-row td { height: 38px; line-height: 38px!important; }
+.edit-detail-frame table td.title { width: 62px; font: normal 14px 宋体; text-align: right; padding-right: 18px; vertical-align: top; line-height: 38px }
+.edit-detail-frame table td.title lable { line-height: 38px; }
+.edit-detail-frame table img.row-sep { width: 100%; height: 2px; background: url('/images/backgrounds/line_1x2.png') repeat-x 0 0; }
+.edit-detail-frame input.all-row-text { width: 90%; height: 28px; line-height: 28px; border: 1px solid #ccc; padding: 0 5px; }
+
+.edit-detail-frame table.sub-table {}
+.edit-detail-frame table.sub-table tr.sub-row { height: 38px; }
+
+.edit-detail-frame .icon-cover { background-image: url('/images/icons/cover_18x18.png') !important; }
+.edit-detail-frame .icon-plus { background-image: url('/images/icons/plus_18x18.png') !important; }
+.edit-detail-frame img.icon-remove { background: url('/images/icons/remove_18x18.png') no-repeat center center; height: 18px; width: 18px; }
+.edit-detail-frame img.cover { border: 1px solid #ccc; padding: 1px; max-width: 100px; max-height: 100px; }
+
+.edit-detail-frame a.orange { color: #f60; }
+
+.edit-detail-frame .back-to-calendar { text-align: right; }
+.edit-detail-frame .back-to-calendar a { font-size: 14px; }
+
+.edit-detail-frame .detail-row { line-height: 35px; margin: 5px 0; overflow: hidden; }
+.edit-detail-frame .detail-row p { line-height: 20px; padding: 7px 0; }
+.edit-detail-frame .detail-row img { vertical-align: middle; }
+
+.edit-detail-frame label.caption { display: block; float: left; width: 105px; padding-right: 10px; text-align: right; font-size: 14px; color: #666; }
+.edit-detail-frame input, .edit-detail-frame textarea { color: #666; }
+.edit-detail-frame input.time-text { width: 95px; border: 1px solid #ccc; }
+.edit-detail-frame textarea.all-row-area { width: 525px; height: 80px; border: 1px solid #ccc; line-height: 28px; padding: 0 5px; }
+
+.edit-detail-frame span { display: inline-block; zoom: 1; overflow: visible; line-height: normal !important; }
+/*.edit-defail-frame .form-row-field div.x-form-field-wrap { float: left; }*/
+.x-html-editor-wrap { float: left; }
+
+.edit-detail-frame .detail-remark { width: 537px; float: left; }
+
+.edit-detail-frame .detail-row-sep { background: url('/images/backgrounds/line_48x1.png') repeat-x center left; height: 1px; margin: 10px 0; }
+
+.edit-detail-ctrls { padding: 20px; }
+.edit-detail-ctrls span { display: block; float: left; }
+.edit-detail-ctrls span.sep { width: 18px; }
+
+.friend_selector { display: none; clear: both; width: 908px; }
+
+.edit-detail-bottom { height: 70px; }
+
+/*
+For event detail /show
+*/
+.event-detail { margin: 0 auto; background-color: #ececec; padding: 10px; overflow: hidden; }
+
+.event-detail .back-to-home { text-align: right; }
+.event-detail .back-to-home a { font-size: 14px; color: #f60; }
+
+.event-detail ul li { display: block; overflow: hidden; line-height: 30px; margin: 5px 0; }
+.event-detail label { width: 100px; text-align: right; display: block; float: left; font-size: 14px; color: #666; }
+.event-detail span { display: block; margin-left: 110px; font-size: 14px; color: #666; }
+.event-detail span.description { height: 270px; border: 1px solid #ccc; background-color: #fff; overflow-y: auto; }
+.event-detail span.invitation { height: 270px; border: 1px solid #ccc; overflow-y: scroll; }
+.event-detail span.invitation ul { padding: 30px 20px; overflow: hidden; }
+.event-detail span.invitation ul li { display: block; float: left; text-align: center; margin: 0 12px; }
+.event-detail span.invitation img { height: 50px; width: 50px; }
+
+.event-detail-ctrls { padding: 20px; }
+.event-detail-ctrls a { margin-right: 10px; }
+
+/*
+ * Event.show
+ */
+
+.event-show-frame { border: 1px solid #ccc; padding: 10px; background-color: #ececec; overflow: hidden; }
+.event-show-frame h1 { font: normal 16px 黑体; color: #666; }
+
+.event-show-main { float: left; width: 680px; border: 1px solid #ccc; background-color: white; padding: 5px 20px 20px 20px; }
+
+.event-show-main p.top-text { text-align: right; color: #999; }
+.event-show-main h1 { padding: 10px 0; }
+.event-show-main .event-info { padding: 10px 0; margin-bottom: 10px; overflow: hidden; }
+.event-show-main .event-info img.topic { max-width: 175px; max-height: 175px; float: left; margin-right: 40px; background-color: #ccc; }
+.event-show-main .event-info span.title { font: normal 12px 宋体; color: #666; margin-right: 10px; }
+.event-show-main .event-info p { font: normal 12px 宋体; color: #333; padding: 5px 0; overflow: hidden; }
+.event-show-main .event-info .event-info-ctrls td.ctrls { line-height: 22px; padding-right: 10px; }
+.event-show-main .related img { vertical-align: middle; }
+
+.event-show-main .dashed-line { margin: 15px 0; }
+.event-show-main .content { font: normal 12px 宋体; color: #666; margin-bottom: 20px; }
+.event-show-main .page-controls { margin: 5px 0; font: normal 14px 宋体; }
+.event-show-main .page-controls .previous, .event-show-main .page-controls .next { float: left; }
+.event-show-main .page-controls .previous { width: 50%; }
+.event-show-main .page-controls .next { text-align: right; width: 50%; }
+
+.comments .reply .title {font-size: 14px; color: #666;}
+.comments .reply .content .x-panel-body .x-form-textarea {font-size: 14px; color: #666; border: solid 4px #ccc; height: 75px; overflow: auto;}
+.comments .reply .icon-plus { background-image: url('/images/icons/plus_18x18.png') !important; }
+.comments .items .x-grid3-cell-inner p.reply-context {white-space: normal;}
+.comments .items .comment-ctrls {vertical-align: bottom;}
+.comments .items .reply-user-panel {padding: 5px 5px 5px 0;}
+.comments .items .reply-user-panel .x-form-textarea {border: solid 4px #ccc; overflow: auto; width:70%;}
+.comments .items .reply-user-panel .x-panel-body {background-color: transparent;}
+.comments .items .reply-user-panel .x-panel-btns table {table-layout: auto;}
+
+.event-show-right { margin-left: 730px; }
+
+.event-show-right .caption { position: relative; }
+.event-show-right .caption span.more-link { position: absolute; bottom: 0; right: 0; }
+.event-show-right .caption span.more-link a { color: #f60; }
+.event-show-right ul { padding: 10px 3px; padding: 10px 0\0; text-align: left; }
+.event-show-right ul li { display: inline-block; *display: inline; zoom: 1; padding: 5px; padding: 4px\0; text-align: center; }
+.event-show-right ul li img { border: 1px solid #ccc; padding: 1px; background-color: white; }
+.event-show-right .seperator { border-top: 1px solid #ccc; border-bottom: 1px solid white; height: 0px; }

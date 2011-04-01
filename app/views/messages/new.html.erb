@@ -1,0 +1,67 @@
+<% pagetitle '写站内信' %>
+
+<% add_javascript( 'messages.new' ) %>
+
+<div class="flash-error" id="flash_error_box">
+    <span></span>
+</div>
+
+<iframe name="nonupdate_iframe" style="display: none; position: absolute; z-index: 1;" src="javascript:void(0)"></iframe>
+
+<% form_for @message, :url => messages_path, :html => { :target => 'nonupdate_iframe' } do |f| -%>
+<%= hidden_field_tag 'errors', 'flash_error_box' %>
+<%= hidden_field_tag 'update', 'msg_inner_frame' %>
+<%= f.hidden_field :send_id %>
+<div class="write-msg-left">
+    <div class="write-msg-row">
+        <span class="write-msg-title">收件人</span>
+        <span class="write-msg-field">
+            <%= text_field_tag 'addressee', '', :readonly => true %>
+            <% if(@recv) -%>
+                <div class="ctrl-address-box" style="display: block;">
+                    <span class="addressee"><%= @recv.name %></span>
+                    <%= link_to image_tag('bg.png', :class => 'close', :title => '删除'), 'javascript:void(0)' %>
+                </div>
+                <%= hidden_field_tag 'message[recv_id]', @recv.id %>
+            <% else %>
+                <%= f.hidden_field :recv_id %>
+            <% end -%>
+        </span>
+    </div>
+    
+    <div class="write-msg-row">
+        <span class="write-msg-title">主题</span>
+        <span class="write-msg-field"><%= f.text_field :title %></span>
+    </div>
+    
+    <div class="write-msg-row">
+        <span class="write-msg-title">内容</span>
+        <span class="write-msg-field"><%= f.text_area :content %></span>
+    </div>    
+</div>
+
+<div class="write-msg-right">
+    <div class="friends-list">
+        <div class="row friends-group">
+            <div class="group-caption"><%= image_tag 'bg.png', :title => '', :class => 'group-icon' %>Ding00 好友(<%= @friends.length %>)</div>
+            <ul>
+            <% @friends.each do |friend| -%>
+                <li userid=<%= friend.id %>><span><%= friend.name %></span></li>
+            <% end -%>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="write-msg-ctrls">
+    <span><%= submit_tag '发送', :class => 'ctrl-button ctrl-button-93x30' %></span>
+    <span><%= link_to_function '取消', 'javascript:history.back()', :href => 'javascript:void(0)', :class => 'ctrl-button ctrl-button-cancel' %></span>
+</div>
+<% end -%>
+
+<div class="ctrl-address-box">
+    <span class="addressee">冬瓜</span>
+    <%= link_to image_tag('bg.png', :class => 'close', :title => '删除'), 'javascript:void(0)' %>
+</div>

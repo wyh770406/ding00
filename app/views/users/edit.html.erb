@@ -1,0 +1,112 @@
+<% pagetitle '编辑用户详细资料' %>
+
+<% add_javascript( 'controls/jquery.showcity' ) %>
+<% add_javascript( 'user.edit' ) %>
+<% add_javascript( 'controls/jquery.photoeditor' ) %>
+
+<div class="user-details-edit">
+    <h1><%= %Q{#{@user.name}的详细资料} %></h1>
+
+    <div class="base-frame avatar">
+        <div class="container">
+            <%= image_tag @user.avatar_url, :title => '', :id => 'avatar_preview' %><br />
+            <%= link_to_function '修改头像', 'show_avatar_upload()', :class => 'ctrl-button ctrl-button-66x26' %>
+        </div>
+    </div>
+    <% form_remote_for @user, :update => 'tip_box', :success => 'show_tip_box(request)', :failure => 'show_tip_box(request)' do |f| -%>
+    <div class="base-frame info">
+        <div class="container">
+            <ul>
+                <li>
+                    <span class="caption">名字</span>
+                    <span class="user-name"><%= f.text_field :name, :class => 'text', :maxlength => 10 %></span>
+                </li>
+                <li>
+                    <span class="caption">性别</span>
+                    <span>
+                        <%= f.radio_button :sex, true %><%= label_tag 'user_sex_true', '男' %>
+                        <%= f.radio_button :sex, false %><%= label_tag 'user_sex_false', '女' %>
+                    </span>
+                </li>
+                <li>
+                    <span class="caption">生日</span>
+                    <span><%= select_year(@user.birthday, :prefix => 'user', :prompt => '', :start_year => 2005, :end_year => 1950, :default => '-1') %><%= label_tag 'user_year', '年' %></span>
+                    <span><%= select_month(@user.birthday, :prefix => 'user', :prompt => '', :use_month_numbers => true, :selected => '0') %><%= label_tag 'user_month', '月' %></span>
+                    <span><%= select_day(@user.birthday, :prefix => 'user', :prompt => '') %><%= label_tag 'user_day', '日' %></span>
+                </li>
+                <li style="position: relative;">
+                    <span class="caption">所在地</span>
+                    <span>
+                        <%= text_field_tag 'address_text', (@user.userdetail.nil?? '' : @user.userdetail.now_address), :readonly => true, :class => 'text' %>
+                    </span>
+                    <% f.fields_for :userdetail do |detail| -%>
+                        <%= detail.hidden_field :now_country %>
+                        <%= detail.hidden_field :now_province %>
+                        <%= detail.hidden_field :now_city %>
+                    <% end -%>
+                    <div id="show_address_div" class="showcity-container">
+                    </div>
+                </li>
+            </ul>
+            <div class="edit-tip-box">
+                <span>此栏为必填项</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="base-frame info">
+        <div class="container">
+            <ul>
+                <li>
+                    <span class="caption">邮箱</span>
+                    <span><%= f.text_field :email, :class => 'text', :readonly => true %></span>
+                </li>
+                <li>
+                    <span class="caption">手机</span>
+                    <span>
+                        <% f.fields_for :userdetail do |detail| -%>
+                            <%= detail.text_field :mobile, :class => 'text' %>
+                        <% end -%>
+                    </span>
+                </li>
+                <li>
+                    <span class="caption">备注</span>
+                </li>
+                <li>
+                    <span class="mark-text">
+                        <% f.fields_for :userdetail do |detail| -%>
+                            <%= detail.text_area :remark, :class => 'text' %>
+                        <% end -%>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ctrls">
+        <%= f.submit '保存', :class => 'ctrl-button ctrl-button-93x30' %><br />
+        <%= link_to '返回首页', { :controller => :home, :action => :index }, :class => 'ctrl-button ctrl-button-93x30' %>
+    </div>
+    <% end -%>
+    <div class="clear"></div>
+</div>
+
+<div id="avatar_editor" class="avatar-editor-container"></div>
+<div id="upload_avatar" class="avatar-upload-container">
+    <h1>请选择新的照片文件，文件需小于5MB<br />(你可以上传JPG、JPEG、GIF、PNG或BMP文件)</h1>
+    <% form_for :user, :url => { :action => 'upload_icon' }, :html => { :multipart => true, :target => 'upload_frame' } do |f| -%>
+        <%= hidden_field_tag 'update', 'avatar_editor' %>
+        <%= hidden_field_tag 'template', 'templates/avatar_editor' %>
+        <div class="ctrl-box-row">
+            <span><%= f.file_field :avatar, :value => '' %></span>
+        </div>
+        <div class="ctrl-box-row">
+            <span>
+                <%= f.submit '上传' %>
+            </span>
+        </div>
+    <% end %>
+    <div style="text-align: right;">
+        <%= link_to_function '取消', '$.unblockUI( { fadeOut : 0 } )', :class => 'ctrl-button ctrl-button-save-26' %>
+    </div>
+</div>
+<iframe id='upload_frame' name="upload_frame" style="width: 1px; height: 1px; border: 0px" src="about:blank"></iframe>

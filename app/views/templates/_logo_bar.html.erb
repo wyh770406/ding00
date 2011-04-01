@@ -1,0 +1,15 @@
+<div class="home-user-bar">
+    <%= generate_logo_bars :bars => [
+        {:caption => 'Ding00首页', :link => { :controller => :home, :action => :index }, :class => 'highlight'},
+        {:caption => '找人'},
+        {:caption => @current_user.name + '的叮铃铃', :link => { :controller => :home, :action => :index }, :class => 'highlight'},
+        {:caption => "私信(<span class='highlight'>#{@current_user.unread_messages.size}</span>)", :link => recv_messages_url},
+        {:caption => '设置'}, 
+        {:caption => '退出', :link => :logout}
+    ], :separation => true, :sepclass => 'sep' %>
+    <div id="user_tip_box"></div>
+</div>
+
+<div class="home-logo-bar">
+    <%= link_to( (image_tag 'logo_305x93.png', :title => '叮呤呤'), { :controller => :home, :action => :index } ) %>
+</div>

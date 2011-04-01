@@ -1,0 +1,24 @@
+.body-box-ececec .tabs { height: 31px; text-align: center; }
+.body-box-ececec .tabs ul { }
+.body-box-ececec .tabs ul li { display: inline; zoom: 1; padding: 0; margin: 0; margin: 0 2px; position: relative; height: 30px; }
+.body-box-ececec .tabs ul li a { width: 117px; height: 30px; line-height: 30px; font-size: 14px; color: #666; text-decoration: none; }
+.body-box-ececec .tabs ul li a { border: 1px solid #ccc; border-bottom: none; background-color: #fff; }
+.body-box-ececec .tabs ul li a:hover { color: #f60; }
+.body-box-ececec .tabs ul li a.active { position: relative; height: 31px; z-index: 100; color: #f60; }
+
+.body-box-ececec .inner-frame { border: 1px solid #ccc; background-color: #fff; padding: 20px; overflow: hidden; }
+
+table.global-controls { width: 100%; margin: 10px 0; }
+
+.comments {}
+
+.comments .outer-table{width: 100%; background-color: #ccc; border: none 0;}
+.comments .outer-table td{background-color: white; padding: 10px 5px; }
+.comments .outer-table td.ctrl{width: 10%; text-align: center;}
+.comments .outer-table td.ctrl div.button {padding: 2px 0;}
+.comments .outer-table td.checkbox-column {width: 5%; text-align: center;}
+.comments .outer-table td.userinfo {width: 10%; text-align: center;}
+.comments .outer-table td.userinfo .avatar img {width: 60px; height: 60px;}
+
+.comments .outer-table .item-hover td { background-color: #ececec; }
+.comments .outer-table .item-selected td { background-color: #ececec; }

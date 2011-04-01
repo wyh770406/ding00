@@ -1,0 +1,39 @@
+<% pagetitle @user.name + '的叮呤呤' %>
+
+<% add_stylesheet( 'home' ) %>
+<% add_stylesheet('calendar_list') %>
+<% add_stylesheet('mind_calender') %>
+
+<% add_javascript( 'home.index' ) %>
+<% add_javascript( 'home.events.time' ) %>
+<% add_javascript( 'jquery.blockUI' ) %>
+<% add_javascript( 'events.list' ) %>
+
+<% content_for(:user_info_ctrls, 
+    generate_attention_control( :current_user => @current_user, :user => @user )) if !@current_user.eql?(@user)
+%>
+<% 
+if !@current_user.eql?(@user)
+    buttons = [ { :title => '发送消息', :link => new_message_path(:recv_id => @user.id ) }, { :title => '详细资料', :link => @user } ]
+else
+    buttons = [ { :title => '详细资料', :link => @user } ]
+end
+
+content_for :user_info_ctrls, 
+    generate_userinfo_ctrls( :buttons => buttons, 
+        :button_class => 'ctrl-button ctrl-button-orange' )
+%>
+
+<% 
+    content_for :events_tabs, 
+        show_mode_buttons( :mode => 'list', 
+            :action => :change_view_mode, 
+            :active => 'active-tab',
+            :update => 'calendar_frame',
+            :before => 'on_mode_before()',
+            :success => 'on_mode_success()'
+        )
+%>
+<% content_for :calendar_frame, render( :partial => 'events_list_mode' ) %>
+<% content_for :onload, remote_function(:url => { :action => :change_view_mode, :mode => 'list' }, :update => 'calendar_frame') %>
+<% content_for :onload, %Q{;load_friends_list(#{@user.id}, 'home_friends_list');load_attention_list(#{@user.id}, 'attention_friends_list');} %>

@@ -1,0 +1,11 @@
+<ul>
+  <%for favorite_user in favorite_users%>
+    <li>
+      <p><%= link_to (image_tag favorite_user.avatar_url, :size => '50x50'), { :controller => :home, :action => :friend, :id => favorite_user.id }, :title => favorite_user.name %>
+        </p>
+      <p><%= link_to favorite_user.name, { :controller => :home, :action => :friend, :id => favorite_user.id } %></p>
+    </li>
+  <%end%>
+
+
+</ul>

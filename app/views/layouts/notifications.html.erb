@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= yield :title %></title>
+    <%= stylesheet_link_tag 'common' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ext-all' %>
+    <%= stylesheet_link_tag 'ext/resources/css/ding00' %>
+    <%= yield :stylesheet %>
+    <%= javascript_tag "var authenticity_token = '#{form_authenticity_token}';" %>
+    <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
+    <%= javascript_include_tag 'ext/ext-all' %>
+    <%= javascript_include_tag 'ext/ext-lang-zh_CN' %>
+	<%= javascript_include_tag :defaults %>
+    <%= yield :javascript %>
+</head>
+<body onload="<%= yield :onload %>">
+    <%= show_logo_bar %>
+
+    <div class="dashed-line" style="margin: 15px 0;"></div>
+
+    <div class="body-box-ececec">
+        <div class="tabs">
+            <ul>
+                <li><%= link_to '评论', 
+                    current_page?(:action => :comments)? 'javascript:void(0)' : {:action => :comments}, 
+                    :title => '评论', :class => ('ctrl-button ' + (current_page?(:action => :comments)? 'active' : '')) %></li>
+                <li><%= link_to '邀请', 
+                    current_page?(:action => :invitations)? 'javascript:void(0)' : {:action => :invitations}, 
+                    :title => '邀请', :class => ('ctrl-button ' + (current_page?(:action => :invitations)? 'active' : '')) %></li>
+            </ul>
+        </div>
+        
+        <div class="inner-frame">
+            <%= yield :layout %>
+        </div>
+    </div>
+</body>
+</html>
+
