@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{325B8569-0C7C-4A6A-8AF8-89C3B6BC9E74}") = "ding00_beta", "ding00_beta.stproj", "{1D2B5853-A527-4B2B-BD36-B1628E77FB4E}"
+EndProject
+Project("{325B8569-0C7C-4A6A-8AF8-89C3B6BC9E74}") = "xiji", "..\xiji\xiji.stproj", "{0691C49A-1E55-4AF0-98C4-6CBC2DCDF21A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D2B5853-A527-4B2B-BD36-B1628E77FB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2B5853-A527-4B2B-BD36-B1628E77FB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2B5853-A527-4B2B-BD36-B1628E77FB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2B5853-A527-4B2B-BD36-B1628E77FB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0691C49A-1E55-4AF0-98C4-6CBC2DCDF21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0691C49A-1E55-4AF0-98C4-6CBC2DCDF21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0691C49A-1E55-4AF0-98C4-6CBC2DCDF21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0691C49A-1E55-4AF0-98C4-6CBC2DCDF21A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
