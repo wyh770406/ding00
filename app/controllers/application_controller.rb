@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
   
   def redirect_to_home
     p "dddhhhjjj"
+    p "sadfasf"
     redirect_to :controller => :home, :action => :index
   end
   
